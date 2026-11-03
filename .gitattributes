@@ -1,0 +1,27 @@
+# 默认：自动识别文本，仓库内统一 LF
+* text=auto
+
+# 配置类文件固定 LF
+.gitignore     text eol=lf
+.gitattributes text eol=lf
+
+# 源码
+*.mjs  text eol=lf
+*.js   text eol=lf
+*.json text eol=lf
+*.md   text eol=crlf
+*.bat  text eol=crlf
+
+# 二进制
+*.bak   binary
+*.asar  binary
+*.exe   binary
+*.png   binary
+*.ico   binary
+
+# 从游戏解包得到的代码：标记为第三方，不计入仓库语言统计
+idx.js  linguist-vendored linguist-detectable=false
+game.js linguist-vendored linguist-detectable=false
+
+# 生成文件
+itemdb.json linguist-generated

@@ -1,0 +1,32 @@
+开发文档.md
+
+# 依赖
+node_modules/
+
+# 从游戏 app.asar 解包出来的渲染层代码（体积大，可用 asar-tool.mjs 重新解出）
+idx.js
+game.js
+
+# 运行时布局快照与求解结果
+layout.json
+layout-live*.json
+layout-applied.json
+layout-new.json
+layout-plan*.json
+layout-backup*.json
+plan.json
+
+# 调试 / 临时文件
+page.js
+contour.txt
+*.log
+
+# 备份与二进制
+*.bak
+*.asar
+*.exe
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini

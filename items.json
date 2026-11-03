@@ -1,0 +1,2470 @@
+[
+ {
+  "id": "starter_bag",
+  "name": "探险者背包"
+ },
+ {
+  "id": "leather_bag",
+  "name": "布包"
+ },
+ {
+  "id": "lucky_bag",
+  "name": "幸运之袋"
+ },
+ {
+  "id": "pocket_bag",
+  "name": "便携口袋"
+ },
+ {
+  "id": "fanny_pack",
+  "name": "腰包"
+ },
+ {
+  "id": "banana_bag",
+  "name": "香蕉包"
+ },
+ {
+  "id": "quiver",
+  "name": "箭袋"
+ },
+ {
+  "id": "travel_bag",
+  "name": "旅行袋"
+ },
+ {
+  "id": "mage_bag",
+  "name": "法师挎包"
+ },
+ {
+  "id": "gloam_reliquary",
+  "name": "晦光法匣"
+ },
+ {
+  "id": "hidden_weapon_case",
+  "name": "暗器匣"
+ },
+ {
+  "id": "serpent_pack",
+  "name": "蛇形包"
+ },
+ {
+  "id": "doll_display",
+  "name": "娃娃展示柜"
+ },
+ {
+  "id": "pet_bag",
+  "name": "宠物笼"
+ },
+ {
+  "id": "void_interlayer",
+  "name": "虚无夹层"
+ },
+ {
+  "id": "void_pouch",
+  "name": "虚空袋"
+ },
+ {
+  "id": "black_box",
+  "name": "黑盒子"
+ },
+ {
+  "id": "sacred_pouch",
+  "name": "圣物袋"
+ },
+ {
+  "id": "hex_cross_bag",
+  "name": "咒术十字包"
+ },
+ {
+  "id": "hunter_pack",
+  "name": "猎人背包"
+ },
+ {
+  "id": "arcane_pocket",
+  "name": "秘法口袋"
+ },
+ {
+  "id": "piggy_bag",
+  "name": "猪猪储物包"
+ },
+ {
+  "id": "treasure_basin",
+  "name": "聚宝盆"
+ },
+ {
+  "id": "first_aid_kit",
+  "name": "急救箱"
+ },
+ {
+  "id": "fish_bag",
+  "name": "鱼形包"
+ },
+ {
+  "id": "stone",
+  "name": "板砖"
+ },
+ {
+  "id": "iron_sword",
+  "name": "铁剑"
+ },
+ {
+  "id": "heavy_greatsword",
+  "name": "厚重大剑"
+ },
+ {
+  "id": "flame_sword",
+  "name": "火焰剑"
+ },
+ {
+  "id": "dual_blade",
+  "name": "双头剑"
+ },
+ {
+  "id": "dual_snake_bite",
+  "name": "双头蛇咬"
+ },
+ {
+  "id": "thornchain_dual_blade",
+  "name": "棘链双头刃"
+ },
+ {
+  "id": "fruit_knife",
+  "name": "水果刀"
+ },
+ {
+  "id": "throwing_dart",
+  "name": "飞镖"
+ },
+ {
+  "id": "poison_fang",
+  "name": "毒牙"
+ },
+ {
+  "id": "poison_dart",
+  "name": "毒飞镖"
+ },
+ {
+  "id": "poison_mist_rose",
+  "name": "毒雾蔷薇"
+ },
+ {
+  "id": "heavy_hammer",
+  "name": "重锤"
+ },
+ {
+  "id": "whirlwind_hammer",
+  "name": "旋风锤"
+ },
+ {
+  "id": "sacred_hammer",
+  "name": "圣锤"
+ },
+ {
+  "id": "blood_bat",
+  "name": "血蝠"
+ },
+ {
+  "id": "lifeleech_bat",
+  "name": "噬生蝠"
+ },
+ {
+  "id": "blood_sword",
+  "name": "饮血剑"
+ },
+ {
+  "id": "hedgehog_ball",
+  "name": "刺猬球"
+ },
+ {
+  "id": "venomous_hedgehog",
+  "name": "毒刺球"
+ },
+ {
+  "id": "toy_hammer",
+  "name": "玩具锤"
+ },
+ {
+  "id": "dragon_claw",
+  "name": "龙爪"
+ },
+ {
+  "id": "thousand_mechanism_umbrella",
+  "name": "千机伞"
+ },
+ {
+  "id": "magic_crystal_core",
+  "name": "魔法晶核"
+ },
+ {
+  "id": "solitary_sword",
+  "name": "孤高之剑"
+ },
+ {
+  "id": "sacrifice_blade",
+  "name": "献祭之刃"
+ },
+ {
+  "id": "damocles_sword",
+  "name": "达摩克利斯之剑"
+ },
+ {
+  "id": "blood_rage_axe",
+  "name": "血怒战斧"
+ },
+ {
+  "id": "fury_of_desperation",
+  "name": "绝境之怒"
+ },
+ {
+  "id": "blood_pact_blade",
+  "name": "血契祭刃"
+ },
+ {
+  "id": "despair_blade",
+  "name": "短刀"
+ },
+ {
+  "id": "dragon_scale_dagger",
+  "name": "龙鳞短刀"
+ },
+ {
+  "id": "dragon_calamity_blade",
+  "name": "龙灾之刃"
+ },
+ {
+  "id": "sacred_sword",
+  "name": "圣剑"
+ },
+ {
+  "id": "profaned_sacred_sword",
+  "name": "亵渎圣剑"
+ },
+ {
+  "id": "blazing_aegis_balance",
+  "name": "破律圣裁"
+ },
+ {
+  "id": "hunting_blade",
+  "name": "追猎之刃"
+ },
+ {
+  "id": "dragon_hunter_blade",
+  "name": "猎龙之刃"
+ },
+ {
+  "id": "flame_dragon",
+  "name": "炎龙"
+ },
+ {
+  "id": "frost_dragon",
+  "name": "霜龙"
+ },
+ {
+  "id": "decay_dragon",
+  "name": "腐龙"
+ },
+ {
+  "id": "frenzy_blade",
+  "name": "狂刃"
+ },
+ {
+  "id": "four_aspect_gyro",
+  "name": "四象陀螺"
+ },
+ {
+  "id": "goldswallow_disc",
+  "name": "噬金弹"
+ },
+ {
+  "id": "torch",
+  "name": "火把"
+ },
+ {
+  "id": "moonlight_sword",
+  "name": "月光剑"
+ },
+ {
+  "id": "moonfall_greatblade",
+  "name": "月陨巨刃"
+ },
+ {
+  "id": "rotbloom_greatblade",
+  "name": "腐华巨刃"
+ },
+ {
+  "id": "time_slit_blade",
+  "name": "时隙短刃"
+ },
+ {
+  "id": "greed_blade",
+  "name": "贪欲之刃"
+ },
+ {
+  "id": "poison_spider",
+  "name": "毒蛛"
+ },
+ {
+  "id": "plague_cocoon",
+  "name": "毒瘟之茧"
+ },
+ {
+  "id": "blazing_twin_swords",
+  "name": "赤炎双剑"
+ },
+ {
+  "id": "gold_dart",
+  "name": "金钱镖"
+ },
+ {
+  "id": "lancet",
+  "name": "柳叶刀"
+ },
+ {
+  "id": "frost_blade",
+  "name": "霜刃"
+ },
+ {
+  "id": "snowball",
+  "name": "雪球"
+ },
+ {
+  "id": "frost_greatsword",
+  "name": "冰霜巨剑"
+ },
+ {
+  "id": "metronome",
+  "name": "节拍器"
+ },
+ {
+  "id": "wind_shuriken",
+  "name": "风魔螺旋镖"
+ },
+ {
+  "id": "flame_dart",
+  "name": "灼热飞镖"
+ },
+ {
+  "id": "frost_dart",
+  "name": "冰霜飞镖"
+ },
+ {
+  "id": "frostflame_wheel",
+  "name": "霜烬飞轮"
+ },
+ {
+  "id": "frostfire_starwheel",
+  "name": "霜火星轮"
+ },
+ {
+  "id": "frost_orb",
+  "name": "冰魄弹"
+ },
+ {
+  "id": "gale_dart",
+  "name": "疾风飞镖"
+ },
+ {
+  "id": "boomerang",
+  "name": "回旋镖"
+ },
+ {
+  "id": "frenzy_sword",
+  "name": "狂热之剑"
+ },
+ {
+  "id": "fury_dart",
+  "name": "狂怒飞镖"
+ },
+ {
+  "id": "bloodfrenzy_blade",
+  "name": "暴君"
+ },
+ {
+  "id": "knuckle_duster",
+  "name": "指虎"
+ },
+ {
+  "id": "arcane_knuckle_duster",
+  "name": "奥术指虎"
+ },
+ {
+  "id": "golden_knuckle_duster",
+  "name": "黄金指虎"
+ },
+ {
+  "id": "venom_knuckle_duster",
+  "name": "蛇蝎指虎"
+ },
+ {
+  "id": "ice_knuckle_duster",
+  "name": "碎冰指虎"
+ },
+ {
+  "id": "ember_frost_blade",
+  "name": "冰火双刃"
+ },
+ {
+  "id": "plate_armor",
+  "name": "铠甲"
+ },
+ {
+  "id": "venomous_armor",
+  "name": "剧毒反甲"
+ },
+ {
+  "id": "frost_armor",
+  "name": "冰霜铠甲"
+ },
+ {
+  "id": "stamina_gloves",
+  "name": "耐力手套"
+ },
+ {
+  "id": "gale_gloves",
+  "name": "疾风手套"
+ },
+ {
+  "id": "vampiric_gloves",
+  "name": "吸血手套"
+ },
+ {
+  "id": "magic_gauntlet",
+  "name": "魔导手套"
+ },
+ {
+  "id": "leather_boots",
+  "name": "皮靴"
+ },
+ {
+  "id": "swift_boots",
+  "name": "疾风靴"
+ },
+ {
+  "id": "ironwall_boots",
+  "name": "铁壁战靴"
+ },
+ {
+  "id": "backpack_armor",
+  "name": "行囊护甲"
+ },
+ {
+  "id": "iron_mask",
+  "name": "铁面罩"
+ },
+ {
+  "id": "warrior_mask",
+  "name": "战士面罩"
+ },
+ {
+  "id": "cloak",
+  "name": "斗篷"
+ },
+ {
+  "id": "shadow_cloak",
+  "name": "暗影披风"
+ },
+ {
+  "id": "shoulder_guard",
+  "name": "肩甲"
+ },
+ {
+  "id": "reverse_scale_spaulder",
+  "name": "逆鳞肩甲"
+ },
+ {
+  "id": "rampage_boots",
+  "name": "暴走靴"
+ },
+ {
+  "id": "buckler",
+  "name": "圆盾"
+ },
+ {
+  "id": "heavy_shield",
+  "name": "重盾"
+ },
+ {
+  "id": "impact_shield",
+  "name": "冲击盾"
+ },
+ {
+  "id": "arm_shield",
+  "name": "鳞甲臂盾"
+ },
+ {
+  "id": "rebirth_arm_shield",
+  "name": "回生臂盾"
+ },
+ {
+  "id": "reverse_feather_armguard",
+  "name": "逆羽臂甲"
+ },
+ {
+  "id": "dragon_scale_shield",
+  "name": "龙鳞盾"
+ },
+ {
+  "id": "arcane_barrier",
+  "name": "秘法壁障"
+ },
+ {
+  "id": "ice_crystal_shield",
+  "name": "冰晶盾"
+ },
+ {
+  "id": "gold_shield",
+  "name": "金钱盾"
+ },
+ {
+  "id": "spartan_helmet",
+  "name": "斯巴达战盔"
+ },
+ {
+  "id": "nimble_wraps",
+  "name": "轻盈裹手"
+ },
+ {
+  "id": "resonance_charm",
+  "name": "共鸣护符"
+ },
+ {
+  "id": "swift_ring",
+  "name": "迅捷戒指"
+ },
+ {
+  "id": "spirit_chime",
+  "name": "灵息铃"
+ },
+ {
+  "id": "spirit_gale_chime",
+  "name": "灵风铃环"
+ },
+ {
+  "id": "beast_soul_chime",
+  "name": "兽魂战铃"
+ },
+ {
+  "id": "clockwork",
+  "name": "发条"
+ },
+ {
+  "id": "dragonfang_gear",
+  "name": "啮骨棘轮"
+ },
+ {
+  "id": "lightning_ball",
+  "name": "闪电球"
+ },
+ {
+  "id": "healing_stone",
+  "name": "治疗石"
+ },
+ {
+  "id": "magic_orb",
+  "name": "魔法球"
+ },
+ {
+  "id": "spring_stone",
+  "name": "疗愈结铃"
+ },
+ {
+  "id": "sacred_bell",
+  "name": "圣铃"
+ },
+ {
+  "id": "archangel",
+  "name": "大天使"
+ },
+ {
+  "id": "exorcism_order",
+  "name": "驱魔令"
+ },
+ {
+  "id": "blazing_verdict",
+  "name": "焚决"
+ },
+ {
+  "id": "phase_turnwheel",
+  "name": "折相转轮"
+ },
+ {
+  "id": "omen_badge",
+  "name": "祸兆徽记"
+ },
+ {
+  "id": "whetstone",
+  "name": "磨刀石"
+ },
+ {
+  "id": "serpent_ring",
+  "name": "蛇蝎戒指"
+ },
+ {
+  "id": "four_leaf_clover",
+  "name": "四叶草"
+ },
+ {
+  "id": "dragon_fang",
+  "name": "龙牙"
+ },
+ {
+  "id": "gold_rush",
+  "name": "赏金标记"
+ },
+ {
+  "id": "blood_stone",
+  "name": "血之石"
+ },
+ {
+  "id": "biphasic_pendant",
+  "name": "双相坠饰"
+ },
+ {
+  "id": "reverse_scale",
+  "name": "逆鳞"
+ },
+ {
+  "id": "rose_brooch",
+  "name": "蔷薇胸针"
+ },
+ {
+  "id": "bulwark_brooch",
+  "name": "壁垒徽章"
+ },
+ {
+  "id": "stone_mask",
+  "name": "石鬼面具"
+ },
+ {
+  "id": "lucky_doll",
+  "name": "幸运娃娃"
+ },
+ {
+  "id": "voodoo_doll",
+  "name": "巫毒娃娃"
+ },
+ {
+  "id": "pin_doll",
+  "name": "针刺娃娃"
+ },
+ {
+  "id": "poison_doll",
+  "name": "剧毒娃娃"
+ },
+ {
+  "id": "straw_doll",
+  "name": "稻草娃娃"
+ },
+ {
+  "id": "inferno_doll",
+  "name": "焚灭娃娃"
+ },
+ {
+  "id": "chant_doll",
+  "name": "祈咒娃娃"
+ },
+ {
+  "id": "dark_emblem",
+  "name": "黑暗纹章"
+ },
+ {
+  "id": "void_matter",
+  "name": "虚空物质"
+ },
+ {
+  "id": "silence_stone",
+  "name": "缄默石"
+ },
+ {
+  "id": "frost_emblem",
+  "name": "冰霜纹章"
+ },
+ {
+  "id": "life_emblem",
+  "name": "生命纹章"
+ },
+ {
+  "id": "frenzy_gem",
+  "name": "狂热宝石"
+ },
+ {
+  "id": "frenzy_conduit",
+  "name": "狂热导线"
+ },
+ {
+  "id": "linked_prism_core",
+  "name": "联动棱芯"
+ },
+ {
+  "id": "tag_resonance_prism",
+  "name": "同调棱镜"
+ },
+ {
+  "id": "arcane_tag_lens",
+  "name": "秘法透镜"
+ },
+ {
+  "id": "comet_sling_core",
+  "name": "彗射星核"
+ },
+ {
+  "id": "infusion_crystal_wheel",
+  "name": "注魔晶轮"
+ },
+ {
+  "id": "frenzy_emblem",
+  "name": "狂暴纹章"
+ },
+ {
+  "id": "magic_emblem",
+  "name": "魔法纹章"
+ },
+ {
+  "id": "wind_emblem",
+  "name": "疾风纹章"
+ },
+ {
+  "id": "strength_emblem",
+  "name": "力量纹章"
+ },
+ {
+  "id": "battle_oath_charm",
+  "name": "战誓护符"
+ },
+ {
+  "id": "charging_hourglass",
+  "name": "蓄势星盘"
+ },
+ {
+  "id": "battle_anchor_charm",
+  "name": "誓锚星核"
+ },
+ {
+  "id": "ember_hourglass",
+  "name": "烬轮熔炉"
+ },
+ {
+  "id": "holy_emblem",
+  "name": "神圣纹章"
+ },
+ {
+  "id": "spore_buddy",
+  "name": "孢孢"
+ },
+ {
+  "id": "big_spore_buddy",
+  "name": "大孢孢"
+ },
+ {
+  "id": "healing_whetstone",
+  "name": "治愈磨刀石"
+ },
+ {
+  "id": "chocobo",
+  "name": "咕咕鸟"
+ },
+ {
+  "id": "corruption_seed",
+  "name": "腐化之种"
+ },
+ {
+  "id": "venom_altar",
+  "name": "瘟毒祭坛"
+ },
+ {
+  "id": "enchanting_altar",
+  "name": "附魔祭坛"
+ },
+ {
+  "id": "dispel_altar",
+  "name": "祛魔祭坛"
+ },
+ {
+  "id": "blood_contract",
+  "name": "血之契约"
+ },
+ {
+  "id": "magic_hat",
+  "name": "魔法帽"
+ },
+ {
+  "id": "lucky_coin",
+  "name": "幸运币"
+ },
+ {
+  "id": "guardian_fairy",
+  "name": "守护小精灵"
+ },
+ {
+  "id": "healing_sprite",
+  "name": "疗愈精灵"
+ },
+ {
+  "id": "healing_angel",
+  "name": "治愈天使"
+ },
+ {
+  "id": "evil_eye",
+  "name": "邪恶之眼"
+ },
+ {
+  "id": "mana_condenser",
+  "name": "蓄魔水晶"
+ },
+ {
+  "id": "mana_siphon_ring",
+  "name": "魔力虹吸戒指"
+ },
+ {
+  "id": "sacrificial_grimoire",
+  "name": "献祭魔典"
+ },
+ {
+  "id": "spell_circuit",
+  "name": "咒术回路"
+ },
+ {
+  "id": "embers",
+  "name": "余烬"
+ },
+ {
+  "id": "sacred_tome",
+  "name": "圣典"
+ },
+ {
+  "id": "fire_salamander",
+  "name": "火蜥蜴"
+ },
+ {
+  "id": "guardian_anchor",
+  "name": "守护之锚"
+ },
+ {
+  "id": "mana_doll",
+  "name": "魔力娃娃"
+ },
+ {
+  "id": "blood_pact_doll",
+  "name": "血契娃娃"
+ },
+ {
+  "id": "cleansing_doll",
+  "name": "祓厄娃娃"
+ },
+ {
+  "id": "puppet_doll",
+  "name": "木偶娃娃"
+ },
+ {
+  "id": "baby_fire_dragon",
+  "name": "小火龙"
+ },
+ {
+  "id": "flame_dragon_egg",
+  "name": "炎龙蛋"
+ },
+ {
+  "id": "frost_dragon_egg",
+  "name": "霜龙蛋"
+ },
+ {
+  "id": "decay_dragon_egg",
+  "name": "腐龙蛋"
+ },
+ {
+  "id": "mandrake",
+  "name": "曼德拉草"
+ },
+ {
+  "id": "sand_worm",
+  "name": "沙虫"
+ },
+ {
+  "id": "frost_sprite",
+  "name": "霜灵"
+ },
+ {
+  "id": "ice_spirit",
+  "name": "冰之精灵"
+ },
+ {
+  "id": "heal_block_emblem",
+  "name": "禁疗纹章"
+ },
+ {
+  "id": "decay_tentacle",
+  "name": "腐蚀触手"
+ },
+ {
+  "id": "wind_crystal",
+  "name": "风之结晶"
+ },
+ {
+  "id": "vitality_charm",
+  "name": "活力护符"
+ },
+ {
+  "id": "windborne_charm",
+  "name": "风行护符"
+ },
+ {
+  "id": "war_drum",
+  "name": "战鼓"
+ },
+ {
+  "id": "whetstone_buckle",
+  "name": "刃徽"
+ },
+ {
+  "id": "lucky_whetstone_buckle",
+  "name": "寻隙锋扣"
+ },
+ {
+  "id": "imperial_guard_bracer",
+  "name": "禁军臂章"
+ },
+ {
+  "id": "battlefury_armlet",
+  "name": "奋战臂环"
+ },
+ {
+  "id": "momentum_pendant_ring",
+  "name": "胜势坠环"
+ },
+ {
+  "id": "war_banner",
+  "name": "战旗"
+ },
+ {
+  "id": "shadow_bracer",
+  "name": "影刃护腕"
+ },
+ {
+  "id": "shadow_blade_pivot",
+  "name": "影刃枢纽"
+ },
+ {
+  "id": "gap_carving_eye",
+  "name": "剜隙魔眼"
+ },
+ {
+  "id": "weakpoint_mark",
+  "name": "破绽印记"
+ },
+ {
+  "id": "balance_fang",
+  "name": "均衡之牙"
+ },
+ {
+  "id": "frost_pendant",
+  "name": "冰霜坠饰"
+ },
+ {
+  "id": "naughty_fairy",
+  "name": "淘气妖精"
+ },
+ {
+  "id": "orbit_hummingbird",
+  "name": "投球鼠"
+ },
+ {
+  "id": "ratatouille_king",
+  "name": "料理鼠王"
+ },
+ {
+  "id": "puppet_stage",
+  "name": "百偶戏台"
+ },
+ {
+  "id": "mana_amplifier",
+  "name": "魔力增幅器"
+ },
+ {
+  "id": "slingshot",
+  "name": "弹弓"
+ },
+ {
+  "id": "synchronous_coordinator",
+  "name": "同频协调器"
+ },
+ {
+  "id": "temporal_rhythm_striker",
+  "name": "时律击发器"
+ },
+ {
+  "id": "warp_device",
+  "name": "跃迁装置"
+ },
+ {
+  "id": "warp_metronome",
+  "name": "蓄力装置"
+ },
+ {
+  "id": "guard_relay",
+  "name": "反震机括"
+ },
+ {
+  "id": "divine_focus",
+  "name": "聚焦仪"
+ },
+ {
+  "id": "repeating_crossbow",
+  "name": "连弩"
+ },
+ {
+  "id": "sleeve_launcher",
+  "name": "暗器袖筒"
+ },
+ {
+  "id": "combo_rune",
+  "name": "连击符文"
+ },
+ {
+  "id": "puppet_gearwork",
+  "name": "傀儡戏台"
+ },
+ {
+  "id": "beast_pact_seal",
+  "name": "兽契方印"
+ },
+ {
+  "id": "beast_tide_nest",
+  "name": "兽潮灵巢"
+ },
+ {
+  "id": "shadow_sleeve",
+  "name": "影舞袖筒"
+ },
+ {
+  "id": "power_glove",
+  "name": "毁灭手套"
+ },
+ {
+  "id": "legend_crown",
+  "name": "传说王冠"
+ },
+ {
+  "id": "rough_battle_banner",
+  "name": "粗粝战旗"
+ },
+ {
+  "id": "lucky_dice",
+  "name": "幸运骰子"
+ },
+ {
+  "id": "thornblood_totem",
+  "name": "棘血图腾"
+ },
+ {
+  "id": "mana_guard_shard",
+  "name": "护魔碎片"
+ },
+ {
+  "id": "pain_orb",
+  "name": "痛觉宝珠"
+ },
+ {
+  "id": "loop_guard_plate",
+  "name": "巡环护片"
+ },
+ {
+  "id": "thornplate_emblem",
+  "name": "棘甲纹章"
+ },
+ {
+  "id": "thorn_spindle",
+  "name": "荆刺转轴"
+ },
+ {
+  "id": "swift_loop_sigil",
+  "name": "速环刻印"
+ },
+ {
+  "id": "frenzy_loop_sigil",
+  "name": "狂心引擎"
+ },
+ {
+  "id": "lucky_d16",
+  "name": "幸运十六面骰"
+ },
+ {
+  "id": "blood_orb",
+  "name": "嗜血珠"
+ },
+ {
+  "id": "blood_demon_heart",
+  "name": "血魔心脏"
+ },
+ {
+  "id": "blood_demon_finger_bone",
+  "name": "血魔指骨"
+ },
+ {
+  "id": "wild_nest_heart",
+  "name": "万灵巢心"
+ },
+ {
+  "id": "all_spirit_core",
+  "name": "万灵之核"
+ },
+ {
+  "id": "blood_pact_sigil",
+  "name": "血契印记"
+ },
+ {
+  "id": "feast_cup",
+  "name": "蟒蛇十字架"
+ },
+ {
+  "id": "blightmend_chalice",
+  "name": "衔尾蛇环"
+ },
+ {
+  "id": "poison_chalice",
+  "name": "毒蚀之杯"
+ },
+ {
+  "id": "venom_chalice",
+  "name": "蚀毒圣杯"
+ },
+ {
+  "id": "venom_sac_specimen",
+  "name": "毒囊标本"
+ },
+ {
+  "id": "venom_lock_core",
+  "name": "蚀毒锁核"
+ },
+ {
+  "id": "storm_blossom",
+  "name": "暴雨梨花"
+ },
+ {
+  "id": "money_turtle",
+  "name": "金钱龟"
+ },
+ {
+  "id": "wealth_compass",
+  "name": "财路罗盘"
+ },
+ {
+  "id": "thief_gloves",
+  "name": "窃贼手套"
+ },
+ {
+  "id": "goldfinger_gloves",
+  "name": "摸金手套"
+ },
+ {
+  "id": "challenger_medal",
+  "name": "挑战者勋章"
+ },
+ {
+  "id": "hero_proof",
+  "name": "勇者之证"
+ },
+ {
+  "id": "garrison_flywheel",
+  "name": "卫戍飞轮"
+ },
+ {
+  "id": "shop_vip_card",
+  "name": "商店VIP卡"
+ },
+ {
+  "id": "durian_fruit_coupon",
+  "name": "丰果契券"
+ },
+ {
+  "id": "bone_nail",
+  "name": "骨钉"
+ },
+ {
+  "id": "bone_spike",
+  "name": "骨刺"
+ },
+ {
+  "id": "dragon_tail",
+  "name": "龙尾"
+ },
+ {
+  "id": "holy_censer",
+  "name": "圣香炉"
+ },
+ {
+  "id": "venom_fang_ring",
+  "name": "毒牙戒"
+ },
+ {
+  "id": "weakpoint_lens",
+  "name": "弱点透镜"
+ },
+ {
+  "id": "candle_holder",
+  "name": "烛台"
+ },
+ {
+  "id": "unyielding_mark",
+  "name": "不屈刻印"
+ },
+ {
+  "id": "undying_battle_mark",
+  "name": "不灭战印"
+ },
+ {
+  "id": "millennium_ginseng",
+  "name": "千年人参"
+ },
+ {
+  "id": "ginseng_immortal",
+  "name": "参仙"
+ },
+ {
+  "id": "vajra",
+  "name": "金刚杵"
+ },
+ {
+  "id": "diamond_vajra",
+  "name": "金刚宝杵"
+ },
+ {
+  "id": "angel_breath",
+  "name": "天使吐息"
+ },
+ {
+  "id": "sarira",
+  "name": "舍利子"
+ },
+ {
+  "id": "alchemist_heart",
+  "name": "炼金师之心"
+ },
+ {
+  "id": "philosopher_stone",
+  "name": "贤者之石"
+ },
+ {
+  "id": "pharmacist_cert",
+  "name": "药师证明"
+ },
+ {
+  "id": "life_altar",
+  "name": "生命祭坛"
+ },
+ {
+  "id": "venom_seal",
+  "name": "蚀毒之印"
+ },
+ {
+  "id": "sunrise_pendant",
+  "name": "朝阳吊坠"
+ },
+ {
+  "id": "crescent_charm",
+  "name": "弦月护符"
+ },
+ {
+  "id": "fury_heart",
+  "name": "蓄力之心"
+ },
+ {
+  "id": "ironwill_clasp",
+  "name": "狮心遗骨"
+ },
+ {
+  "id": "copper_wall_iron_bastion",
+  "name": "壁垒之心"
+ },
+ {
+  "id": "tenfold_edge_gear",
+  "name": "十锋齿轮"
+ },
+ {
+  "id": "beast_echo_totem",
+  "name": "兽灵回响"
+ },
+ {
+  "id": "beast_call_horn",
+  "name": "唤兽号角"
+ },
+ {
+  "id": "myriad_beast_echo",
+  "name": "万灵回响"
+ },
+ {
+  "id": "venom_crest",
+  "name": "毒蔓徽记"
+ },
+ {
+  "id": "plague_rosary",
+  "name": "瘟疫念珠"
+ },
+ {
+  "id": "sinner_shackle",
+  "name": "罪人镣铐"
+ },
+ {
+  "id": "spirit_spring_heart",
+  "name": "灵泉之心"
+ },
+ {
+  "id": "grace_emblem",
+  "name": "恩典羽翎"
+ },
+ {
+  "id": "perseverance_heart",
+  "name": "坚守之心"
+ },
+ {
+  "id": "plague_seed",
+  "name": "蔓疫之种"
+ },
+ {
+  "id": "battleworn_guard_stone",
+  "name": "耐战护石"
+ },
+ {
+  "id": "doll_life_scroll",
+  "name": "灵偶命卷"
+ },
+ {
+  "id": "centecho_sigil",
+  "name": "百响圣痕"
+ },
+ {
+  "id": "eternal_mark",
+  "name": "永恒圣痕"
+ },
+ {
+  "id": "eternal_hourglass",
+  "name": "永恒沙漏"
+ },
+ {
+  "id": "arcane_flux",
+  "name": "奥术涌流"
+ },
+ {
+  "id": "deflagration_core",
+  "name": "爆燃核心"
+ },
+ {
+  "id": "primordial_fire",
+  "name": "原初之火"
+ },
+ {
+  "id": "calibrator",
+  "name": "校准仪"
+ },
+ {
+  "id": "hex_quiver",
+  "name": "咒翎刻印"
+ },
+ {
+  "id": "feather_sigil",
+  "name": "失重线圈"
+ },
+ {
+  "id": "needle_box",
+  "name": "千针匣"
+ },
+ {
+  "id": "shuriken",
+  "name": "手里剑"
+ },
+ {
+  "id": "shadow_ailment_stiletto",
+  "name": "影疾刺针"
+ },
+ {
+  "id": "wound_siphon_thread",
+  "name": "创痕丝线"
+ },
+ {
+  "id": "assassin_codex",
+  "name": "刺客秘笈"
+ },
+ {
+  "id": "shadow_kill_codex",
+  "name": "影杀秘笈"
+ },
+ {
+  "id": "flame_chalice",
+  "name": "火焰杯"
+ },
+ {
+  "id": "blazing_chalice",
+  "name": "炽焰圣杯"
+ },
+ {
+  "id": "frost_chalice",
+  "name": "霜冻杯"
+ },
+ {
+  "id": "glacial_chalice",
+  "name": "极寒圣杯"
+ },
+ {
+  "id": "grace_chalice",
+  "name": "恩泽圣杯"
+ },
+ {
+  "id": "eternal_chalice",
+  "name": "永恒圣杯"
+ },
+ {
+  "id": "ancient_mana_crystal",
+  "name": "上古魔晶"
+ },
+ {
+  "id": "mana_tide_cluster",
+  "name": "魔潮晶簇"
+ },
+ {
+  "id": "windwalker_boots",
+  "name": "风行之靴"
+ },
+ {
+  "id": "abundant_bag",
+  "name": "丰饶之袋"
+ },
+ {
+  "id": "harvest_satchel",
+  "name": "丰饶锦囊"
+ },
+ {
+  "id": "allfruit_seed",
+  "name": "万果圣种"
+ },
+ {
+  "id": "wayfarer_medal",
+  "name": "行者勋章"
+ },
+ {
+  "id": "drift_crystal",
+  "name": "漂移水晶"
+ },
+ {
+  "id": "pain_crystal",
+  "name": "痛觉水晶"
+ },
+ {
+  "id": "warding_talisman",
+  "name": "庇命符"
+ },
+ {
+  "id": "wound_badge",
+  "name": "伤痕战徽"
+ },
+ {
+  "id": "bloodheat_runestone",
+  "name": "沸血符石"
+ },
+ {
+  "id": "soul_shedding_bell",
+  "name": "离魂古铃"
+ },
+ {
+  "id": "floor_guardian",
+  "name": "深渊守卫"
+ },
+ {
+  "id": "swift_loop_sigil_plus",
+  "name": "极·速环刻印"
+ },
+ {
+  "id": "swift_loop_sigil_final",
+  "name": "终·速环刻印"
+ },
+ {
+  "id": "eagle_eye_scope",
+  "name": "鹰眼瞄准镜"
+ },
+ {
+  "id": "sewing_box",
+  "name": "针线盒"
+ },
+ {
+  "id": "acceleration_gear",
+  "name": "加速齿轮"
+ },
+ {
+  "id": "soul_chain",
+  "name": "灵魂锁链"
+ },
+ {
+  "id": "golden_seed",
+  "name": "黄金树种子"
+ },
+ {
+  "id": "golden_branch",
+  "name": "黄金树枝"
+ },
+ {
+  "id": "golden_tree",
+  "name": "黄金树"
+ },
+ {
+  "id": "battle_mend_ember",
+  "name": "愈战火种"
+ },
+ {
+  "id": "soulwash_bell",
+  "name": "净魂银铃"
+ },
+ {
+  "id": "arcane_codex",
+  "name": "奥术宝典"
+ },
+ {
+  "id": "thorn_king_crown",
+  "name": "棘王冠"
+ },
+ {
+  "id": "thorn_king_diadem",
+  "name": "棘王冕"
+ },
+ {
+  "id": "thorn_emperor_crown",
+  "name": "棘帝冠"
+ },
+ {
+  "id": "blood_thorn_king_seal",
+  "name": "血棘王印"
+ },
+ {
+  "id": "spring_moss_knot",
+  "name": "回春苔结"
+ },
+ {
+  "id": "gleam_seedstone",
+  "name": "盈辉胎石"
+ },
+ {
+  "id": "gleam_sacred_stone",
+  "name": "盈辉圣石"
+ },
+ {
+  "id": "mage_cert",
+  "name": "法师证明"
+ },
+ {
+  "id": "mana_anchor",
+  "name": "魔力铭刻"
+ },
+ {
+  "id": "holy_fire_mark",
+  "name": "圣火印记"
+ },
+ {
+  "id": "ember_life_casket",
+  "name": "余烬命匣"
+ },
+ {
+  "id": "affliction_brand",
+  "name": "苦痛烙印"
+ },
+ {
+  "id": "frost_heart",
+  "name": "霜心"
+ },
+ {
+  "id": "frost_prism",
+  "name": "霜棱镜"
+ },
+ {
+  "id": "ember_corner_flint",
+  "name": "折焰燧石"
+ },
+ {
+  "id": "corner_badge",
+  "name": "转角战徽"
+ },
+ {
+  "id": "permafrost_core",
+  "name": "永冻核心"
+ },
+ {
+  "id": "stasis_ice_core",
+  "name": "滞时冰核"
+ },
+ {
+  "id": "glacier_tear",
+  "name": "冰河之泪"
+ },
+ {
+  "id": "fracture_tuning_fork",
+  "name": "裂拍音叉"
+ },
+ {
+  "id": "seal_ring",
+  "name": "封印之环"
+ },
+ {
+  "id": "battle_mending_heart",
+  "name": "战愈之心"
+ },
+ {
+  "id": "health_potion_small",
+  "name": "生命药水"
+ },
+ {
+  "id": "advanced_health_potion",
+  "name": "高阶生命药水"
+ },
+ {
+  "id": "premium_health_potion",
+  "name": "特级生命药水"
+ },
+ {
+  "id": "poison_potion",
+  "name": "剧毒药水"
+ },
+ {
+  "id": "gold_pouch",
+  "name": "钱袋"
+ },
+ {
+  "id": "banana",
+  "name": "香蕉"
+ },
+ {
+  "id": "apple",
+  "name": "苹果"
+ },
+ {
+  "id": "moss_remedy",
+  "name": "苔药"
+ },
+ {
+  "id": "mushroom_soup",
+  "name": "蘑菇汤"
+ },
+ {
+  "id": "poison_apple",
+  "name": "毒苹果"
+ },
+ {
+  "id": "pineapple",
+  "name": "菠萝"
+ },
+ {
+  "id": "blueberry",
+  "name": "蓝莓"
+ },
+ {
+  "id": "dragon_fruit",
+  "name": "火龙果"
+ },
+ {
+  "id": "lemon",
+  "name": "柠檬"
+ },
+ {
+  "id": "strawberry",
+  "name": "草莓"
+ },
+ {
+  "id": "durian",
+  "name": "榴莲"
+ },
+ {
+  "id": "purify_potion",
+  "name": "净化药水"
+ },
+ {
+  "id": "stamina_potion",
+  "name": "耐力药水"
+ },
+ {
+  "id": "holy_potion",
+  "name": "神圣药水"
+ },
+ {
+  "id": "strength_potion",
+  "name": "力量药水"
+ },
+ {
+  "id": "mana_potion",
+  "name": "魔力药水"
+ },
+ {
+  "id": "healing_potion",
+  "name": "疗愈药水"
+ },
+ {
+  "id": "fire_bomb",
+  "name": "燃烧瓶"
+ },
+ {
+  "id": "stun_bomb",
+  "name": "眩晕弹"
+ },
+ {
+  "id": "purify_curse_potion",
+  "name": "祛咒药水"
+ },
+ {
+  "id": "antidote_potion",
+  "name": "解毒药水"
+ },
+ {
+  "id": "burn_salve",
+  "name": "清凉药膏"
+ },
+ {
+  "id": "dispel_elixir",
+  "name": "万象解封药"
+ },
+ {
+  "id": "ethereal_elixir",
+  "name": "灵体秘药"
+ },
+ {
+  "id": "calamity_hex",
+  "name": "灾厄侵染"
+ },
+ {
+  "id": "curse_chant",
+  "name": "咒死低语"
+ },
+ {
+  "id": "soul_judgment",
+  "name": "灵魂审判"
+ },
+ {
+  "id": "summon_curse_servant",
+  "name": "召唤：诅咒仆从"
+ },
+ {
+  "id": "flame_breath",
+  "name": "烈焰吐息"
+ },
+ {
+  "id": "rebirth_heal",
+  "name": "浴火重生"
+ },
+ {
+  "id": "phoenix",
+  "name": "不死鸟"
+ },
+ {
+  "id": "furious_charge",
+  "name": "狂暴冲锋"
+ },
+ {
+  "id": "orc_mage_fireball",
+  "name": "火球术"
+ },
+ {
+  "id": "orc_mage_heal",
+  "name": "战地治愈"
+ },
+ {
+  "id": "frost_breath",
+  "name": "冰霜吐息"
+ },
+ {
+  "id": "ice_armor",
+  "name": "冰甲"
+ },
+ {
+  "id": "corrode_weapon",
+  "name": "腐蚀武器"
+ },
+ {
+  "id": "slime_slow",
+  "name": "黏液减速"
+ },
+ {
+  "id": "seal_domain",
+  "name": "封域"
+ },
+ {
+  "id": "purge_and_guard",
+  "name": "净化壁障"
+ },
+ {
+  "id": "tyrant_rage",
+  "name": "暴君之怒"
+ },
+ {
+  "id": "corrupting_curse",
+  "name": "腐朽之咒"
+ },
+ {
+  "id": "cerberus",
+  "name": "地狱三头犬"
+ },
+ {
+  "id": "venom_sting",
+  "name": "毒刺"
+ },
+ {
+  "id": "spore_cloud",
+  "name": "孢子释放"
+ },
+ {
+  "id": "earth_stomp",
+  "name": "大地践踏"
+ },
+ {
+  "id": "stone_armor",
+  "name": "岩石护甲"
+ },
+ {
+  "id": "troll",
+  "name": "巨怪"
+ },
+ {
+  "id": "lizard_weak_spit",
+  "name": "虚弱毒液"
+ },
+ {
+  "id": "lizard_war_cry",
+  "name": "蜥人战吼"
+ },
+ {
+  "id": "troglodyte",
+  "name": "穴蜥人"
+ },
+ {
+  "id": "spectral_strike",
+  "name": "幽魂冲击"
+ },
+ {
+  "id": "soul_drain",
+  "name": "灵魂汲取"
+ },
+ {
+  "id": "wraith",
+  "name": "幽魂"
+ },
+ {
+  "id": "slaad_poison_tick",
+  "name": "催毒"
+ },
+ {
+  "id": "slaad_chaos_bind",
+  "name": "混沌枷锁"
+ },
+ {
+  "id": "slaad",
+  "name": "史拉蟾"
+ },
+ {
+  "id": "serpent_seal",
+  "name": "蛇咒封印"
+ },
+ {
+  "id": "serpent_curse",
+  "name": "蛇毒诅咒"
+ },
+ {
+  "id": "desecrate_aura",
+  "name": "亵渎光环"
+ },
+ {
+  "id": "berserk_roar",
+  "name": "狂暴战吼"
+ },
+ {
+  "id": "life_link",
+  "name": "生命链接"
+ },
+ {
+  "id": "purifying_touch",
+  "name": "净化之触"
+ },
+ {
+  "id": "self_poison",
+  "name": "蓄毒"
+ },
+ {
+  "id": "self_destruct",
+  "name": "自爆"
+ },
+ {
+  "id": "summon_poison_bug",
+  "name": "孵化"
+ },
+ {
+  "id": "bramble_growth",
+  "name": "棘蔓丛生"
+ },
+ {
+  "id": "tidal_shield",
+  "name": "潮汐护盾"
+ },
+ {
+  "id": "sea_rage",
+  "name": "海怒"
+ },
+ {
+  "id": "cursed_tide",
+  "name": "诅咒浪潮"
+ },
+ {
+  "id": "death_curse",
+  "name": "咒杀"
+ },
+ {
+  "id": "calamity_purge",
+  "name": "灾厄净化"
+ },
+ {
+  "id": "ethereal_form",
+  "name": "灵体化"
+ },
+ {
+  "id": "venom_bite",
+  "name": "毒咬"
+ },
+ {
+  "id": "tail_sting",
+  "name": "刺尾突袭"
+ },
+ {
+  "id": "owlbear",
+  "name": "幽邃熊怪"
+ },
+ {
+  "id": "shaman_heal",
+  "name": "治愈之光"
+ },
+ {
+  "id": "petrifying_gaze",
+  "name": "腐蚀溶液"
+ },
+ {
+  "id": "venom_spit",
+  "name": "毒液喷射"
+ },
+ {
+  "id": "basilisk",
+  "name": "石化蜥蜴"
+ },
+ {
+  "id": "crushing_grip",
+  "name": "碾压之握"
+ },
+ {
+  "id": "abyssal_miasma",
+  "name": "深渊瘴气"
+ },
+ {
+  "id": "roper",
+  "name": "穴居攫怪"
+ },
+ {
+  "id": "void_gaze",
+  "name": "虚空凝视"
+ },
+ {
+  "id": "self_purify",
+  "name": "自我净化"
+ },
+ {
+  "id": "dark_ritual_heal",
+  "name": "暗黑仪式"
+ },
+ {
+  "id": "frost_curse",
+  "name": "霜寒诅咒"
+ },
+ {
+  "id": "divine_shield",
+  "name": "神圣护盾"
+ },
+ {
+  "id": "no_heal_curse",
+  "name": "诅咒之疫"
+ },
+ {
+  "id": "corrosion_curse",
+  "name": "腐蚀诅咒"
+ },
+ {
+  "id": "acid_spit",
+  "name": "酸液喷射"
+ },
+ {
+  "id": "corrosive_mist",
+  "name": "腐蚀迷雾"
+ },
+ {
+  "id": "shadow_seal_medium",
+  "name": "暗影封印"
+ },
+ {
+  "id": "shadow_strike",
+  "name": "暗影冲击"
+ },
+ {
+  "id": "plague_breath",
+  "name": "瘟疫龙息"
+ },
+ {
+  "id": "devour_toxin",
+  "name": "吞噬毒素"
+ },
+ {
+  "id": "curse_of_silence",
+  "name": "沉默诅咒"
+ },
+ {
+  "id": "naga_empower",
+  "name": "蛇灵赐力"
+ },
+ {
+  "id": "wind_blade",
+  "name": "风刃"
+ },
+ {
+  "id": "soar",
+  "name": "盘旋"
+ },
+ {
+  "id": "harpy",
+  "name": "鹰身女妖"
+ },
+ {
+  "id": "corrosive_pollen",
+  "name": "腐蚀花粉"
+ },
+ {
+  "id": "toxic_spore",
+  "name": "毒孢子"
+ },
+ {
+  "id": "trigger_lock",
+  "name": "缠绕封锁"
+ },
+ {
+  "id": "purify_player",
+  "name": "侵蚀净化"
+ },
+ {
+  "id": "grow_thorns",
+  "name": "竖刺"
+ },
+ {
+  "id": "porcupine",
+  "name": "豪猪"
+ },
+ {
+  "id": "plague_bite",
+  "name": "疫咬"
+ },
+ {
+  "id": "random_curse",
+  "name": "混沌诅咒"
+ },
+ {
+  "id": "purifying_scales",
+  "name": "净化龙鳞"
+ },
+ {
+  "id": "dragon_breath",
+  "name": "亡灵龙息"
+ },
+ {
+  "id": "dracolich",
+  "name": "龙巫妖"
+ },
+ {
+  "id": "magma_blast",
+  "name": "熔岩喷射"
+ },
+ {
+  "id": "magma_armor",
+  "name": "熔岩护甲"
+ },
+ {
+  "id": "scale_guard",
+  "name": "瞬鳞护体"
+ },
+ {
+  "id": "frenzied_bite",
+  "name": "狂乱撕咬"
+ },
+ {
+  "id": "chaos_peck",
+  "name": "混乱啄击"
+ },
+ {
+  "id": "summon_magma_slime",
+  "name": "召唤岩浆怪"
+ },
+ {
+  "id": "inferno_strike",
+  "name": "炼狱打击"
+ },
+ {
+  "id": "balor",
+  "name": "炎魔"
+ },
+ {
+  "id": "ogre_rage",
+  "name": "暴怒"
+ },
+ {
+  "id": "ogre_devour",
+  "name": "吞噬"
+ },
+ {
+  "id": "ogre",
+  "name": "食人魔"
+ },
+ {
+  "id": "gargoyle",
+  "name": "石像鬼"
+ },
+ {
+  "id": "gargoyle_curse",
+  "name": "石化凝视"
+ },
+ {
+  "id": "gnoll_lockdown",
+  "name": "钳制"
+ },
+ {
+  "id": "gnoll_purify",
+  "name": "野性净化"
+ },
+ {
+  "id": "gnoll",
+  "name": "鬣狗人"
+ },
+ {
+  "id": "pseudodragon",
+  "name": "伪龙"
+ },
+ {
+  "id": "pseudo_seal",
+  "name": "魔力封锁"
+ },
+ {
+  "id": "pseudo_frost",
+  "name": "龙息冰暴"
+ },
+ {
+  "id": "skeleton_burn",
+  "name": "焚骨烈焰"
+ },
+ {
+  "id": "minotaur_fortify",
+  "name": "亡者之力"
+ },
+ {
+  "id": "yeti_frost_blast",
+  "name": "极寒霜暴"
+ },
+ {
+  "id": "yeti_snow_rage",
+  "name": "雪怒觉醒"
+ },
+ {
+  "id": "displacer_strike",
+  "name": "位移撕裂"
+ },
+ {
+  "id": "displacer_empower",
+  "name": "维度强化"
+ },
+ {
+  "id": "claw_seal_medium",
+  "name": "魔力侵蚀"
+ },
+ {
+  "id": "claw_seal_weapon",
+  "name": "武器侵蚀"
+ },
+ {
+  "id": "thorn_treant_rot_pollen",
+  "name": "腐棘花粉"
+ },
+ {
+  "id": "thorn_treant_venom_slam",
+  "name": "毒棘猛击"
+ },
+ {
+  "id": "centipede_thorns",
+  "name": "节甲竖刺"
+ },
+ {
+  "id": "centipede_curse",
+  "name": "百足诅咒"
+ },
+ {
+  "id": "yugoloth_drain",
+  "name": "生命汲取"
+ },
+ {
+  "id": "yugoloth_corrode",
+  "name": "腐蚀突刺"
+ },
+ {
+  "id": "yugoloth",
+  "name": "尤格罗斯魔"
+ },
+ {
+  "id": "golem_regenerate",
+  "name": "血肉重塑"
+ },
+ {
+  "id": "golem_fortify",
+  "name": "钢筋铁骨"
+ },
+ {
+  "id": "storm_confusion",
+  "name": "风暴咆哮"
+ },
+ {
+  "id": "storm_cleanse",
+  "name": "雷霆净化"
+ },
+ {
+  "id": "mummy_serve",
+  "name": "仆从侍奉"
+ },
+ {
+  "id": "lord_plague",
+  "name": "亡者瘟疫"
+ },
+ {
+  "id": "lord_rally",
+  "name": "亡灵号令"
+ },
+ {
+  "id": "armor_empower",
+  "name": "战意凝聚"
+ },
+ {
+  "id": "armor_fortress",
+  "name": "铁壁形态"
+ },
+ {
+  "id": "prismatic_breath",
+  "name": "乱彩吐息"
+ },
+ {
+  "id": "fey_pulse",
+  "name": "妖精脉冲"
+ },
+ {
+  "id": "iridescent_blessing",
+  "name": "虹鳞赐福"
+ },
+ {
+  "id": "wyvern_locking_screech",
+  "name": "锁喉尖啸"
+ },
+ {
+  "id": "wyvern_corrosive_dive",
+  "name": "腐蚀俯冲"
+ },
+ {
+  "id": "wyvern_iron_molt",
+  "name": "蜕鳞铁壁"
+ },
+ {
+  "id": "wyvern",
+  "name": "双足飞龙"
+ },
+ {
+  "id": "observer_final_gaze",
+  "name": "终末凝视"
+ },
+ {
+  "id": "observer_world_reset",
+  "name": "世界重置"
+ },
+ {
+  "id": "observer_seal_medium",
+  "name": "魔力侵蚀"
+ },
+ {
+  "id": "observer_mana_siphon",
+  "name": "魔能虹吸"
+ },
+ {
+  "id": "observer_arcane_barrier",
+  "name": "秘仪壁障"
+ },
+ {
+  "id": "observer_seal_weapon",
+  "name": "武器侵蚀"
+ },
+ {
+  "id": "observer_gravity_lance",
+  "name": "重力长枪"
+ },
+ {
+  "id": "observer_rune_lock",
+  "name": "符文锁定"
+ },
+ {
+  "id": "energy_blast",
+  "name": "能量炮击"
+ },
+ {
+  "id": "heal_all_allies",
+  "name": "生命脉冲"
+ },
+ {
+  "id": "shield_all_allies",
+  "name": "守护屏障"
+ },
+ {
+  "id": "chaos_curse",
+  "name": "混沌诅咒"
+ },
+ {
+  "id": "thorn_shield",
+  "name": "荆棘护盾"
+ },
+ {
+  "id": "summon_floating_cannon",
+  "name": "召唤：浮游炮"
+ },
+ {
+  "id": "summon_life_core",
+  "name": "召唤：生命核心"
+ },
+ {
+  "id": "summon_guardian_core",
+  "name": "召唤：守护核心"
+ },
+ {
+  "id": "demon_altar",
+  "name": "恶魔祭坛"
+ },
+ {
+  "id": "forge",
+  "name": "锻造台"
+ },
+ {
+  "id": "npc_lilith",
+  "name": "莉莉丝"
+ },
+ {
+  "id": "npc_mushroom_elder",
+  "name": "蘑菇长老"
+ },
+ {
+  "id": "treasure_chest",
+  "name": "神秘宝箱"
+ },
+ {
+  "id": "corpse_looting",
+  "name": "冒险家尸体"
+ },
+ {
+  "id": "fill_box",
+  "name": "蜥蜴人的箱子游戏"
+ },
+ {
+  "id": "npc_lost_alchemist",
+  "name": "迷路的炼金术师"
+ },
+ {
+  "id": "eerie_mirror",
+  "name": "诡异的镜子"
+ },
+ {
+  "id": "cursed_peddler",
+  "name": "游魂行商"
+ },
+ {
+  "id": "praying_nun",
+  "name": "祈祷的修女"
+ },
+ {
+  "id": "wishing_well",
+  "name": "许愿井"
+ },
+ {
+  "id": "little_demon",
+  "name": "小恶魔"
+ },
+ {
+  "id": "barter_trader",
+  "name": "以物易物商人"
+ },
+ {
+  "id": "fortune_wheel",
+  "name": "命运之轮"
+ },
+ {
+  "id": "npc_wandering_mage",
+  "name": "游方法师"
+ },
+ {
+  "id": "npc_fruit_vendor",
+  "name": "果农"
+ },
+ {
+  "id": "blood_arena",
+  "name": "血色竞技场"
+ },
+ {
+  "id": "hungry_traveler",
+  "name": "饥饿的旅人"
+ },
+ {
+  "id": "npc_biologist",
+  "name": "生物学家"
+ },
+ {
+  "id": "combat_trainer",
+  "name": "战力测试"
+ },
+ {
+  "id": "golden_knuckle_merchant",
+  "name": "黄金商人"
+ },
+ {
+  "id": "blind_box",
+  "name": "铃铛盲盒"
+ },
+ {
+  "id": "divination",
+  "name": "精灵占卜师"
+ },
+ {
+  "id": "slot_machine",
+  "name": "幸运水果机"
+ },
+ {
+  "id": "grid_contest",
+  "name": "grid_contest"
+ },
+ {
+  "id": "timed_match_link",
+  "name": "限时连连看"
+ },
+ {
+  "id": "memory_match",
+  "name": "记忆翻牌"
+ },
+ {
+  "id": "restore_backpack",
+  "name": "restore_backpack"
+ },
+ {
+  "id": "item_restoration",
+  "name": "item_restoration"
+ },
+ {
+  "id": "void_traveler",
+  "name": "虚空旅人"
+ },
+ {
+  "id": "ancient_ruins",
+  "name": "上古遗迹"
+ },
+ {
+  "id": "dragon_trainer",
+  "name": "dragonTrainer"
+ }
+]
