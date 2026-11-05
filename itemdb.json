@@ -1892,7 +1892,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -3330,7 +3331,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -3367,7 +3369,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -3406,7 +3409,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": null,
@@ -3414,7 +3418,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -3565,7 +3570,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -3602,7 +3608,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -3673,7 +3680,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -4096,7 +4104,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4137,7 +4146,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4175,7 +4185,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4241,7 +4252,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4279,7 +4291,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4318,7 +4331,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "healPercentFromSourceCounter": {
      "targetType": null,
@@ -4326,7 +4340,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4364,7 +4379,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4403,7 +4419,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -4447,7 +4464,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4600,7 +4618,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": "accessory",
@@ -4608,7 +4627,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4736,7 +4756,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4774,7 +4795,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4812,7 +4834,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4852,7 +4875,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -4889,7 +4913,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -5053,7 +5078,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -5091,7 +5117,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -5130,7 +5157,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": "defense",
@@ -5138,7 +5166,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -5568,7 +5597,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -5607,7 +5637,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -5680,7 +5711,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -5719,7 +5751,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -5760,7 +5793,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -5987,7 +6021,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6145,7 +6180,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6185,7 +6221,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": null,
@@ -6193,7 +6230,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6232,7 +6270,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6273,7 +6312,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": "weapon",
@@ -6281,7 +6321,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6321,7 +6362,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6359,7 +6401,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6396,7 +6439,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6434,7 +6478,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6651,7 +6696,8 @@
      "excludeTag": "magic",
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6692,7 +6738,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6765,7 +6812,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6834,7 +6882,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -6989,7 +7038,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7191,7 +7241,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7437,7 +7488,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": "accessory",
@@ -7445,7 +7497,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7483,7 +7536,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7521,7 +7575,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -7565,7 +7620,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -7609,7 +7665,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7648,7 +7705,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -7691,7 +7749,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7729,7 +7788,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7768,7 +7828,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7807,7 +7868,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -7851,7 +7913,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7916,7 +7979,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7954,7 +8018,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": true
+     "randomTrigger": true,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -7993,7 +8058,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8032,7 +8098,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8074,7 +8141,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": null,
@@ -8082,7 +8150,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8120,7 +8189,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": true
+     "randomTrigger": true,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8160,7 +8230,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8201,7 +8272,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -8245,7 +8317,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -8288,7 +8361,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8326,7 +8400,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -8368,7 +8443,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8406,7 +8482,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8444,7 +8521,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8484,7 +8562,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8521,7 +8600,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -8562,7 +8642,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": true
     },
     "triggerOtherTargetsOnTrigger": {
      "targetType": null,
@@ -8570,7 +8651,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8608,7 +8690,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -8650,7 +8733,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -8688,7 +8772,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": true
+     "randomTrigger": true,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -19638,7 +19723,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -19903,7 +19989,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -19943,7 +20030,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -19980,7 +20068,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -20084,7 +20173,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20122,7 +20212,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20160,7 +20251,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20199,7 +20291,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20239,7 +20332,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "bonusMagicDamageFromPlayerStatus": {
      "targetType": null,
@@ -20247,7 +20341,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20317,7 +20412,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20356,7 +20452,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20395,7 +20492,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": {
@@ -20442,7 +20540,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "healFromPlayerStatusOnTrigger": {
      "targetType": null,
@@ -20450,7 +20549,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20491,7 +20591,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20531,7 +20632,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20572,7 +20674,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20612,7 +20715,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20652,7 +20756,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20692,7 +20797,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": "accessory",
@@ -20700,7 +20806,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20740,7 +20847,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20779,7 +20887,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20818,7 +20927,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20859,7 +20969,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20901,7 +21012,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20941,7 +21053,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": true
+     "randomTrigger": true,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -20982,7 +21095,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": true
+     "randomTrigger": true,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21023,7 +21137,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21064,7 +21179,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21106,7 +21222,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": null,
@@ -21114,7 +21231,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21154,7 +21272,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21196,7 +21315,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": true,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21237,7 +21357,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": true
+     "randomTrigger": true,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21278,7 +21399,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,
@@ -21320,7 +21442,8 @@
      "excludeTag": null,
      "triggerTarget": true,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     },
     "diamond": {
      "targetType": "accessory",
@@ -21328,7 +21451,8 @@
      "excludeTag": null,
      "triggerTarget": false,
      "damageAllEnemies": false,
-     "randomTrigger": false
+     "randomTrigger": false,
+     "triggerOther": false
     }
    },
    "counter": null,

@@ -48,12 +48,13 @@ const DUMP = `(()=>{const P=${P};const s=P.state.value;
 return JSON.stringify({
   gameState: s.gameFlow.gameState,
   items: s.player.items.map(i=>({uid:i.uid,id:i.id,x:i.x,y:i.y,rot:i.rotation||0})),
-  bags: s.player.bags.map(b=>({id:b.id,x:b.x,y:b.y,rot:b.rotation||0})),
+  bags: s.player.bags.map(b=>({uid:b.uid,id:b.id,x:b.x,y:b.y,rot:b.rotation||0})),
 });})()`;
 
 const WRITE = b64 => `(()=>{const P=${P};const s=P.state.value;
 if(s.gameFlow.gameState==='battle')return JSON.stringify({error:'in_battle'});
-const plan=JSON.parse(atob('${b64}'));
+const payload=JSON.parse(atob('${b64}'));
+const plan=payload.items||[];
 const byUid=new Map(s.player.items.map(i=>[i.uid,i]));
 const done=[],missing=[];
 for(const p of plan){
@@ -62,7 +63,18 @@ for(const p of plan){
   it.x=p.x;it.y=p.y;it.rotation=p.rot;
   done.push({uid:p.uid,x:it.x,y:it.y,rot:it.rotation});
 }
-return JSON.stringify({done,missing});})()`;
+let bagsDone=0;
+if(payload.bags){
+  const bs=s.player.bags;
+  const byUid=new Map(bs.map(b=>[b.uid,b]));
+  const useUid=payload.bags.every(b=>b.uid&&byUid.has(b.uid));
+  if(useUid){
+    for(const pb of payload.bags){const bb=byUid.get(pb.uid);bb.x=pb.x;bb.y=pb.y;bb.rotation=pb.rot;bagsDone++;}
+  }else if(payload.bags.length===bs.length){
+    for(let i=0;i<bs.length;i++){bs[i].x=payload.bags[i].x;bs[i].y=payload.bags[i].y;bs[i].rotation=payload.bags[i].rot;bagsDone++;}
+  }
+}
+return JSON.stringify({done,missing,bagsDone});})()`;
 
 function readLayout(ev) {
   return ev(DUMP).then(s => JSON.parse(s));
@@ -94,10 +106,27 @@ async function cmdApply(ev, planPath, force) {
     throw new Error(`计划与当前布局不匹配: 未覆盖 ${extra.length} 件, 缺失 ${gone.length} 件. 用 --force 强制或重新 dump+solve`);
   }
 
-  const b64 = Buffer.from(JSON.stringify(items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot ?? i.rotation ?? 0 }))), 'utf8').toString('base64');
+  const payload = {
+    items: items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot ?? i.rotation ?? 0 })),
+  };
+  if (Array.isArray(plan.bags)) {
+    const liveSet = new Set(live.bags.map(b => b.uid));
+    const planHasUid = plan.bags.length > 0 && plan.bags.every(b => b.uid);
+    if (planHasUid) {
+      const missing = plan.bags.filter(b => !liveSet.has(b.uid)).length;
+      if (missing && !force) throw new Error(`计划中有 ${missing} 个背包已不存在，请重新 dump+solve`);
+      payload.bags = plan.bags.map(b => ({ uid: b.uid, x: b.x, y: b.y, rot: b.rot ?? 0 }));
+    } else if (plan.bags.length !== live.bags.length) {
+      if (!force) throw new Error(`背包数量不一致（计划 ${plan.bags.length} / 当前 ${live.bags.length}），请重新 dump+solve`);
+      console.log('⚠ 背包数量不一致，跳过背包写入');
+    } else {
+      payload.bags = plan.bags.map(b => ({ x: b.x, y: b.y, rot: b.rot ?? b.rotation ?? 0 }));
+    }
+  }
+  const b64 = Buffer.from(JSON.stringify(payload), 'utf8').toString('base64');
   const res = JSON.parse(await ev(WRITE(b64)));
   if (res.error) throw new Error(res.error);
-  console.log(`写入完成: ${res.done.length} 件${res.missing.length ? `, 未找到 ${res.missing.length}` : ''}`);
+  console.log(`写入完成: ${res.done.length} 件${res.missing.length ? `, 未找到 ${res.missing.length}` : ''}${res.bagsDone ? `，背包 ${res.bagsDone} 个` : ''}`);
 
   const after = await readLayout(ev);
   const byUid = new Map(after.items.map(i => [i.uid, i]));
@@ -107,7 +136,14 @@ async function cmdApply(ev, planPath, force) {
     const want = p.rot ?? p.rotation ?? 0;
     if (!a || a.x !== p.x || a.y !== p.y || a.rot !== want) { bad++; }
   }
-  console.log(bad ? `⚠ 回读校验失败 ${bad} 件` : `✅ 回读校验通过 (${items.length} 件)`);
+  let bagBad = 0;
+  if (payload.bags) {
+    payload.bags.forEach((b, i) => {
+      const a = after.bags[i];
+      if (!a || a.x !== b.x || a.y !== b.y || a.rot !== b.rot) bagBad++;
+    });
+  }
+  console.log(bad || bagBad ? `⚠ 回读校验失败 道具 ${bad} / 背包 ${bagBad}` : `✅ 回读校验通过 (${items.length} 件${payload.bags ? ` + ${payload.bags.length} 背包` : ''})`);
 
   fs.writeFileSync('layout-applied.json', JSON.stringify(after, null, 1), 'utf8');
   return bad === 0;
@@ -117,10 +153,12 @@ async function cmdUndo(ev, backupPath) {
   const file = backupPath || 'layout-backup.json';
   if (!fs.existsSync(file)) throw new Error(`${file} 不存在`);
   const backup = JSON.parse(fs.readFileSync(file, 'utf8'));
-  const b64 = Buffer.from(JSON.stringify(backup.items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot ?? i.rotation ?? 0 }))), 'utf8').toString('base64');
+  const payload = { items: backup.items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot ?? 0 })) };
+  if (Array.isArray(backup.bags)) payload.bags = backup.bags.map(b => ({ uid: b.uid, x: b.x, y: b.y, rot: b.rot ?? 0 }));
+  const b64 = Buffer.from(JSON.stringify(payload), 'utf8').toString('base64');
   const res = JSON.parse(await ev(WRITE(b64)));
   if (res.error) throw new Error(res.error);
-  console.log(`已还原 ${res.done.length} 件${res.missing.length ? `, 缺失 ${res.missing.length}` : ''}`);
+  console.log(`已还原 ${res.done.length} 件${res.missing.length ? `, 缺失 ${res.missing.length}` : ''}${res.bagsDone ? `，背包 ${res.bagsDone} 个` : ''}`);
   const after = await readLayout(ev);
   let bad = 0;
   const byUid = new Map(after.items.map(i => [i.uid, i]));
@@ -128,7 +166,11 @@ async function cmdUndo(ev, backupPath) {
     const a = byUid.get(p.uid);
     if (!a || a.x !== p.x || a.y !== p.y || a.rot !== (p.rot ?? 0)) bad++;
   }
-  console.log(bad ? `⚠ 还原校验失败 ${bad} 件` : '✅ 还原校验通过');
+  if (payload.bags) payload.bags.forEach((b, i) => {
+    const a = after.bags[i];
+    if (!a || a.x !== b.x || a.y !== b.y || a.rot !== b.rot) bad++;
+  });
+  console.log(bad ? `⚠ 还原校验失败 ${bad} 处` : '✅ 还原校验通过');
 }
 
 async function main() {

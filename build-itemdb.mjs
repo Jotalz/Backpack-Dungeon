@@ -126,6 +126,7 @@ for (const id of ids) {
         triggerTarget: /triggerTarget\s*:\s*true/.test(sb),
         damageAllEnemies: /damageAllEnemies\s*:\s*true/.test(sb),
         randomTrigger: /randomTriggerTarget\s*:/.test(sb),
+        triggerOther: /triggerOtherTargetsOnTrigger\s*:/.test(sb),
       };
     }
   }

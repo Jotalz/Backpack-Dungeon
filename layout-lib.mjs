@@ -186,11 +186,11 @@ export function scoreLayout(db, layout, opts = {}) {
     const pts = src.buffs.filter(b => b.buffType === 'star' || b.buffType === 'diamond');
     if (!pts.length) continue;
     const ctr = src.counter;
-    const filter = (ctr && ctr.pointTypes && ctr.pointTypes.includes('star'))
-      ? { targetTag: ctr.targetTag || null }
-      : (src.buffsMeta?.star || (src.starBonus ? { targetType: src.starBonus.targetType } : null));
     let sat = 0;
     for (const p of pts) {
+      let filter = src.buffsMeta?.[p.buffType] || null;
+      if (!filter && p.buffType === 'star' && ctr && ctr.pointTypes && ctr.pointTypes.includes('star')) filter = { targetTag: ctr.targetTag || null };
+      if (!filter && p.buffType === 'star' && src.starBonus) filter = { targetType: src.starBonus.targetType };
       const here = (occ.get(`${p.x},${p.y}`) || []).filter(o => o.uid !== src.uid);
       if (here.some(o => filterOk(filter, o))) sat++;
     }

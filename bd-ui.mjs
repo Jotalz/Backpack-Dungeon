@@ -68,13 +68,15 @@ async function withCDP(fn) {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 /* ---------- 布局工具 ---------- */
-const LAYOUT_JS = `(()=>{const P=(window.__bd_pinia||(window.__bd_pinia=(()=>{const el=document.querySelector('#app');const app=el&&el.__vue_app__;if(!app)return null;for(const k of Reflect.ownKeys(app._context.provides)){const v=app._context.provides[k];if(v&&typeof v==='object'&&'_s' in v&&'state' in v)return v;}return null;})()));const s=P.state.value;return {gameState:s.gameFlow.gameState,items:s.player.items.map(i=>({uid:i.uid,id:i.id,x:i.x,y:i.y,rot:i.rotation||0})),bags:s.player.bags.map(b=>({id:b.id,x:b.x,y:b.y,rot:b.rotation||0}))};})()`;
+const LAYOUT_JS = `(()=>{const P=(window.__bd_pinia||(window.__bd_pinia=(()=>{const el=document.querySelector('#app');const app=el&&el.__vue_app__;if(!app)return null;for(const k of Reflect.ownKeys(app._context.provides)){const v=app._context.provides[k];if(v&&typeof v==='object'&&'_s' in v&&'state' in v)return v;}return null;})()));const s=P.state.value;return {gameState:s.gameFlow.gameState,items:s.player.items.map(i=>({uid:i.uid,id:i.id,x:i.x,y:i.y,rot:i.rotation||0})),bags:s.player.bags.map(b=>({uid:b.uid,id:b.id,x:b.x,y:b.y,rot:b.rotation||0}))};})()`;
 
-const WRITE_JS = req => `(()=>{const P=(window.__bd_pinia||(window.__bd_pinia=(()=>{const el=document.querySelector('#app');const app=el&&el.__vue_app__;if(!app)return null;for(const k of Reflect.ownKeys(app._context.provides)){const v=app._context.provides[k];if(v&&typeof v==='object'&&'_s' in v&&'state' in v)return v;}return null;})()));const s=P.state.value;
+const WRITE_JS = payload => `(()=>{const P=(window.__bd_pinia||(window.__bd_pinia=(()=>{const el=document.querySelector('#app');const app=el&&el.__vue_app__;if(!app)return null;for(const k of Reflect.ownKeys(app._context.provides)){const v=app._context.provides[k];if(v&&typeof v==='object'&&'_s' in v&&'state' in v)return v;}return null;})()));const s=P.state.value;
 if(s.gameFlow.gameState==='battle')return {error:'in_battle'};
-const plan=${JSON.stringify(req)};const byUid=new Map(s.player.items.map(i=>[i.uid,i]));const done=[],missing=[];
+const payload=${JSON.stringify(payload)};const plan=payload.items||[];const byUid=new Map(s.player.items.map(i=>[i.uid,i]));const done=[],missing=[];
 for(const p of plan){const it=byUid.get(p.uid);if(!it){missing.push(p.uid);continue;}it.x=p.x;it.y=p.y;it.rotation=p.rot;done.push(p.uid);}
-return {done:done.length,missing:missing.length};})()`;
+let bagsDone=0;
+if(payload.bags){const bs=s.player.bags;const byUid=new Map(bs.map(b=>[b.uid,b]));const useUid=payload.bags.every(b=>b.uid&&byUid.has(b.uid));if(useUid){for(const pb of payload.bags){const bb=byUid.get(pb.uid);bb.x=pb.x;bb.y=pb.y;bb.rotation=pb.rot;bagsDone++;}}else if(payload.bags.length===bs.length){for(let i=0;i<bs.length;i++){bs[i].x=payload.bags[i].x;bs[i].y=payload.bags[i].y;bs[i].rotation=payload.bags[i].rot;bagsDone++;}}}
+return {done:done.length,missing:missing.length,bagsDone};})()`;
 
 function layoutMetrics(d) {
   const r = scoreLayout(ITEMDB, d);
@@ -105,6 +107,18 @@ function diffMoves(before, after) {
   return out;
 }
 
+function diffBagMoves(before, after) {
+  const out = [];
+  const n = Math.min(before.length, after.length);
+  for (let i = 0; i < n; i++) {
+    const b = before[i], a = after[i];
+    if (b.x !== a.x || b.y !== a.y || (b.rot || 0) !== (a.rot || 0)) {
+      out.push({ id: a.id, from: `${b.x},${b.y},r${b.rot || 0}`, to: `${a.x},${a.y},r${a.rot || 0}` });
+    }
+  }
+  return out;
+}
+
 function runNode(args, cwd) {
   return new Promise((res, rej) => {
     const p = spawn(process.execPath, args, { cwd });
@@ -117,13 +131,14 @@ function runNode(args, cwd) {
 
 const ENFORCE_JS = `(()=>{
   const t=window.__bdm; if(!t) return {ok:false,error:'no __bdm'};
-  window.__bd = Object.assign({godHp:false,infStam:false,goldMul:1,dmgPct:0,ballSpeed:0,loopTime:0,hpTarget:0,stamTarget:0,manaTarget:0,hpOnce:false,stamOnce:false,manaFill:false,statusTarget:0,statusLocks:{}}, window.__bd||{});
+  window.__bd = Object.assign({godHp:false,infStam:false,goldMul:1,dmgPct:0,ballSpeed:0,loopTime:0,hpTarget:0,hpFloor:0,stamTarget:0,manaTarget:0,hpOnce:false,stamOnce:false,manaFill:false,statusTarget:0,statusLocks:{}}, window.__bd||{});
   const apply=()=>{
     const m=window.__bdm,b=window.__bd; if(!m||!b) return;
     if(b.hpTarget>0){
       if(b.hpOnce){ m.playerMaxHp=b.hpTarget; m.playerHp=b.hpTarget; b.hpOnce=false; }
     }
     else if(b.godHp){m.playerHp=m.playerMaxHp;}
+    if(b.hpFloor>0&&m.playerHp<b.hpFloor){ m.playerHp=(b.hpTarget>0?b.hpTarget:m.playerMaxHp); }
     if(b.stamTarget>0){
       if(b.stamOnce){ m.playerMaxStamina=b.stamTarget; m.playerStamina=b.stamTarget; b.stamOnce=false; }
     }
@@ -233,12 +248,13 @@ const STATUS_JS = `(()=>{const t=window.__bdm;
     if(app){for(const k of Reflect.ownKeys(app._context.provides)){const v=app._context.provides[k];
       if(v&&typeof v==='object'&&'_s' in v&&'state' in v){P=v;window.__bd_pinia=v;break;}}}}catch(e){}}
   const store=(P&&P.state&&P.state.value&&P.state.value.player)||{};
-  if(!t) return {ok:false, serverConnected:true, storeGold:store.gold};
+  if(!t) return {ok:false, serverConnected:true, storeGold:store.gold, shop:!!(window.__bdShop&&window.__bdShop.on)};
   return {ok:true, hp:t.playerHp, maxHp:t.playerMaxHp, stamina:t.playerStamina, maxStamina:t.playerMaxStamina,
     gold:t.playerGold, storeGold:store.gold, mana:t.playerStatusManager?t.playerStatusManager.getStatusStacks('mana'):null,
     armorStacks:t.playerStatusManager?t.playerStatusManager.getStatusStacks('armor'):null,
     ballSpeed:t.ballManager&&t.ballManager.getCurrentSpeed&&t.ballManager.getCurrentSpeed(),
     enemies:t.enemyManagers?t.enemyManagers.length:0, flags:window.__bd||null,
+    shop:!!(window.__bdShop&&window.__bdShop.on),
     wrapped:{dmg:!!t.__bdDamageWrapped, speed:!!(t.ballManager&&t.ballManager.__bdSpeedWrapped),
              goldCb:!!t.__goldCbWrapped, hook:!!t.__bdHooked}};})()`;
 
@@ -357,6 +373,13 @@ window.__bdApply&&window.__bdApply();
 return {hp:t?t.playerHp:null,maxHp:t?t.playerMaxHp:null,storeMax:st?st.player.playerMaxHealth:null};})()`);
       });
     }
+    case 'hpfloor': {
+      const v = num(q.value, 0);
+      return withCDP(async ({ evalJs }) => {
+        await evalJs(ENFORCE_JS);
+        return evalJs(`(()=>{const b=window.__bd,m=window.__bdm;b.hpFloor=${v};window.__bdApply&&window.__bdApply();return {hpFloor:b.hpFloor,hp:m?m.playerHp:null,maxHp:m?m.playerMaxHp:null};})()`);
+      });
+    }
     case 'stam': {
       const max = num(q.max, 0);
       return withCDP(async ({ evalJs }) => {
@@ -387,6 +410,40 @@ return {stamina:t?t.playerStamina:null,maxStamina:t?t.playerMaxStamina:null,stor
           else { b.loopTime=0; if(b.__loopOrig>0){ bm.minLoopTimeSeconds=b.__loopOrig; b.__loopOrig=0; } }
           return {loopTime:b.loopTime,minLoop:bm.minLoopTimeSeconds,maxSpeed:(bm.trackPath&&bm.trackPath.length?bm.trackPath.length/bm.minLoopTimeSeconds:null)};})()`);
       });
+    }
+    case 'freerefresh': {
+      const on = q.value === '1';
+      return withCDP(async ({ evalJs }) => evalJs(`(()=>{
+        const P=window.__bd_pinia; if(!P) return {error:'no pinia'};
+        window.__bdShop=window.__bdShop||{on:false,pending:false};
+        window.__bdShop.on=${on};
+        if(!window.__bdShopHooked){
+          window.__bdShopHooked=true;
+          document.addEventListener('click',function(e){
+            const s=window.__bdShop; if(!s||!s.on) return;
+            const el=e.target; const btn=el&&el.closest?el.closest('[data-id="shop-refresh"]'):null;
+            if(!btn) return;
+            s.pending=true;
+            setTimeout(function(){ s.pending=false; },0);
+          },true);
+        }
+        const ps=P._s&&P._s.get?P._s.get('player'):null;
+        if(ps&&!ps.__bdSpendWrapped){
+          ps.__bdSpendWrapped=true;
+          ps.__bdSpendOrig=ps.spendGold;
+          const o=ps.spendGold;
+          ps.spendGold=function(amount,opts){
+            const s=window.__bdShop;
+            if(s&&s.on&&s.pending){ s.pending=false; return; }
+            return o.call(this,amount,opts);
+          };
+        }
+        if(!${on}&&ps&&ps.__bdSpendWrapped&&ps.__bdSpendOrig){
+          try{ ps.spendGold=ps.__bdSpendOrig; }catch(e){}
+          ps.__bdSpendWrapped=false; ps.__bdSpendOrig=null;
+        }
+        return {on:window.__bdShop.on, gold:P.state.value.player.gold};
+      })()`));
     }
     case 'gold': {
       const mul = num(q.value, 5);
@@ -482,12 +539,19 @@ return {stamina:t?t.playerStamina:null,maxStamina:t?t.playerMaxStamina:null,stor
       if (d.gameState === 'battle') throw new Error('战斗中不能求解，请先结束战斗');
       fs.writeFileSync(LAYOUT_FILE, JSON.stringify(d, null, 1));
       const t0 = Date.now();
+      const moveBags = q.movebags === '1' ? 1 : 0;
       await runNode(['solve.mjs', LAYOUT_FILE, ITEMDB_FILE,
         '--restarts=' + (q.restarts || 40), '--iters=' + (q.iters || 2000),
-        '--penalty=' + (q.penalty || 0.4), '--deadpen=120'], DIR);
+        '--penalty=' + (q.penalty || 0.4), '--deadpen=120',
+        '--movebags=' + moveBags, '--bagtime=' + (q.bagtime || 12000)], DIR);
       const plan = JSON.parse(fs.readFileSync(PLAN_FILE, 'utf8'));
-      const merged = { ...d, items: plan.items };
-      return { ms: Date.now() - t0, moves: diffMoves(d.items, plan.items), before: layoutMetrics(d), after: layoutMetrics(merged) };
+      const merged = { ...d, bags: plan.bags || d.bags, items: plan.items };
+      return {
+        ms: Date.now() - t0,
+        moves: diffMoves(d.items, plan.items),
+        bagMoves: diffBagMoves(d.bags, plan.bags || d.bags),
+        before: layoutMetrics(d), after: layoutMetrics(merged),
+      };
     }
     case 'layoutapply': {
       if (!fs.existsSync(PLAN_FILE)) throw new Error('没有 plan.json，请先求解');
@@ -498,27 +562,39 @@ return {stamina:t?t.playerStamina:null,maxStamina:t?t.playerMaxStamina:null,stor
       const planUids = new Set(plan.items.map(i => i.uid));
       const extra = [...liveUids].filter(u => !planUids.has(u)).length;
       const gone = [...planUids].filter(u => !liveUids.has(u)).length;
-      if (extra || gone) throw new Error(`计划与当前布局不匹配（多 ${extra} / 少 ${gone} 件），请重新求解`);
+      if (extra || gone) throw new Error('计划与当前布局不匹配（多 ' + extra + ' / 少 ' + gone + ' 件），请重新求解');
       fs.writeFileSync(BACKUP_FILE, JSON.stringify(live, null, 1));
-      const req = plan.items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot || 0 }));
-      const r = await withCDP(({ evalJs }) => evalJs(WRITE_JS(req)));
+      const payload = { items: plan.items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot || 0 })) };
+      if (Array.isArray(plan.bags)) {
+        if (plan.bags.length !== live.bags.length) throw new Error('背包数量已变化（计划 ' + plan.bags.length + ' / 当前 ' + live.bags.length + '），请重新求解');
+        payload.bags = plan.bags.map(b => ({ uid: b.uid, x: b.x, y: b.y, rot: b.rot || 0 }));
+      }
+      const r = await withCDP(({ evalJs }) => evalJs(WRITE_JS(payload)));
       if (r.error) throw new Error(r.error);
       const after = await withCDP(({ evalJs }) => evalJs(LAYOUT_JS));
       fs.writeFileSync(fileURLToPath(new URL('./layout-applied.json', import.meta.url)), JSON.stringify(after, null, 1));
       const m = new Map(after.items.map(i => [i.uid, i]));
       let bad = 0;
-      for (const p of req) { const a = m.get(p.uid); if (!a || a.x !== p.x || a.y !== p.y || a.rot !== p.rot) bad++; }
-      return { written: r.done, missing: r.missing, verified: bad === 0, metrics: layoutMetrics(after) };
+      for (const pp of payload.items) { const a = m.get(pp.uid); if (!a || a.x !== pp.x || a.y !== pp.y || a.rot !== pp.rot) bad++; }
+      if (payload.bags) {
+        const bm = new Map(after.bags.map(b => [b.uid, b]));
+        for (const bb of payload.bags) {
+          const a = bb.uid ? bm.get(bb.uid) : after.bags[payload.bags.indexOf(bb)];
+          if (!a || a.x !== bb.x || a.y !== bb.y || a.rot !== bb.rot) bad++;
+        }
+      }
+      return { written: r.done, missing: r.missing, bags: r.bagsDone || 0, verified: bad === 0, metrics: layoutMetrics(after) };
     }
     case 'layoutundo': {
       const file = q.file === 'orig' ? BACKUP_ORIG_FILE : BACKUP_FILE;
       if (!fs.existsSync(file)) throw new Error('没有备份文件');
-      const b = JSON.parse(fs.readFileSync(file, 'utf8'));
-      const req = b.items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot || 0 }));
-      const r = await withCDP(({ evalJs }) => evalJs(WRITE_JS(req)));
+      const bk = JSON.parse(fs.readFileSync(file, 'utf8'));
+      const payload = { items: bk.items.map(i => ({ uid: i.uid, x: i.x, y: i.y, rot: i.rot || 0 })) };
+      if (Array.isArray(bk.bags)) payload.bags = bk.bags.map(x => ({ x: x.x, y: x.y, rot: x.rot || 0 }));
+      const r = await withCDP(({ evalJs }) => evalJs(WRITE_JS(payload)));
       if (r.error) throw new Error(r.error);
       const after = await withCDP(({ evalJs }) => evalJs(LAYOUT_JS));
-      return { restored: r.done, metrics: layoutMetrics(after) };
+      return { restored: r.done, bags: r.bagsDone || 0, metrics: layoutMetrics(after) };
     }
     case 'setfield': {
       const key = q.key, value = num(q.value, 0);
@@ -532,104 +608,267 @@ return {stamina:t?t.playerStamina:null,maxStamina:t?t.playerMaxStamina:null,stor
 /* ---------- HTTP ---------- */
 const PAGE = `<!doctype html><html lang="zh"><head><meta charset="utf-8">
 <title>背包地牢 修改器</title><style>
-:root{color-scheme:dark}
-body{margin:0;font:14px/1.5 system-ui,"Segoe UI",sans-serif;background:#14161a;color:#e6e6e6}
-header{padding:14px 18px;background:#1c2027;border-bottom:1px solid #2b313a;display:flex;gap:12px;align-items:center}
-h1{font-size:16px;margin:0;font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding:16px}
-.card{background:#1c2027;border:1px solid #2b313a;border-radius:10px;padding:14px}
-.card h2{font-size:13px;margin:0 0 10px;color:#9aa4b2;font-weight:600;letter-spacing:.04em}
-.row{display:flex;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap}
-button{background:#2b313a;color:#e6e6e6;border:1px solid #3a424d;border-radius:7px;padding:7px 12px;cursor:pointer;font-size:13px}
-button:hover{background:#343c47}button.on{background:#1f6f43;border-color:#2f9c5e}button.off{background:#4a2b2b;border-color:#7a3b3b}
-button.primary{background:#2f6fed;border-color:#4a86ff}
-input{background:#12151a;border:1px solid #3a424d;color:#e6e6e6;border-radius:6px;padding:6px 8px;width:88px}
-input[type=range]{width:180px}
-.k{color:#8b96a5}.v{font-variant-numeric:tabular-nums;font-weight:600}
-.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;border:1px solid #3a424d}
-.ok{color:#4ade80;border-color:#2f9c5e}.bad{color:#f87171;border-color:#7a3b3b}.warn{color:#fbbf24;border-color:#a16207}
-#msg{padding:0 18px 8px;color:#fbbf24;min-height:20px;font-size:13px}
-table{width:100%;border-collapse:collapse}td{padding:3px 0}td:last-child{text-align:right}
+:root{
+  --ink:#0b0e10; --surface:#121719; --sunken:#0d1113;
+  --line:#223034; --line-hot:#31474c;
+  --text:#e7ece9; --dim:#93a6a2; --mut:#71837e;
+  --orb:#f0b429; --ok:#74c69d; --bad:#e0685e;
+  --ui:"Bahnschrift","Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+  --mono:"Cascadia Mono","Cascadia Code",Consolas,"Courier New",monospace;
+  --grid:rgba(255,255,255,.022);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;max-width:100%;overflow-x:hidden}
+body{
+  margin:0; color:var(--text); font:14px/1.55 var(--ui);
+  background:
+    linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 100%,
+    var(--ink);
+}
+header{
+  position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between;
+  gap:16px; padding:10px 20px; background:rgba(11,14,16,.92); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex; align-items:center; gap:12px; min-width:0}
+.brand h1{font-size:15px; margin:0; font-weight:600; letter-spacing:.01em; white-space:nowrap}
+.brand .sub{margin:1px 0 0; font:11px/1.2 var(--mono); color:var(--mut); letter-spacing:.04em}
+.orbit{width:38px; height:38px; color:var(--orb); flex:none}
+@keyframes orbit-in{from{transform:rotate(-80deg); opacity:.25} to{transform:rotate(0); opacity:1}}
+.orbit{animation:orbit-in 1.1s cubic-bezier(.2,.7,.2,1) both; transform-origin:50% 50%}
+@media (prefers-reduced-motion:reduce){.orbit{animation:none}}
+.head-actions{display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+#msg{
+  min-height:26px; padding:5px 20px; font:12px/1.6 var(--mono); color:var(--orb);
+  border-bottom:1px solid var(--line); background:rgba(240,180,41,.035);
+}
+#msg:empty{background:transparent}
+
+.grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px; background:var(--line); border-bottom:1px solid var(--line);
+}
+.card{min-width:0; padding:16px 18px 18px; background:var(--surface)}
+.card.wide{grid-column:span 2}
+.card.hintcard{display:flex; flex-direction:column; justify-content:flex-end; background:var(--sunken)}
+.card.hintcard p{margin:0 0 6px; font-size:12px; line-height:1.7; color:var(--mut)}
+.card.hintcard b{color:var(--dim); font-weight:600; font-family:var(--mono); font-size:11px; letter-spacing:.06em; display:block; margin-bottom:6px}
+@media (max-width:1320px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} .card.hintcard{grid-column:1/-1} }
+@media (max-width:820px){ .grid{grid-template-columns:1fr} .card.wide{grid-column:auto} }
+
+h2{
+  font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--dim);
+  margin:0 0 11px; display:flex; align-items:center; gap:9px;
+}
+h2 .g{
+  font-family:var(--mono); font-size:12px; color:var(--orb); opacity:.85;
+  border:1px solid rgba(240,180,41,.28); padding:1px 5px; line-height:1.2;
+}
+.row{display:flex; gap:8px; align-items:center; margin:9px 0; flex-wrap:wrap; color:var(--dim)}
+.row .k,span.k{color:var(--mut); font-size:12px}
+.v{font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--text); font-weight:600}
+
+button{
+  font:13px/1 var(--ui); color:var(--text); background:#151b1d;
+  border:1px solid var(--line); border-radius:2px; padding:8px 12px; cursor:pointer;
+  transition:background .12s ease, border-color .12s ease, color .12s ease;
+}
+button:hover{background:#1a2224; border-color:var(--line-hot)}
+button:active{transform:translateY(1px)}
+button.on{border-color:var(--orb); background:var(--orb); color:#0b0e10; font-weight:600}
+button.primary{border-color:rgba(240,180,41,.55); color:var(--orb); background:rgba(240,180,41,.06)}
+button.primary:hover{background:rgba(240,180,41,.14)}
+
+input{
+  font:13px/1 var(--mono); color:var(--text); background:var(--sunken);
+  border:1px solid var(--line); border-left:2px solid var(--line-hot); border-radius:0;
+  padding:8px 9px; width:104px;
+}
+input::placeholder{color:#4d5c58}
+input:focus{outline:none; border-color:var(--orb); border-left-color:var(--orb)}
+input[type=range]{
+  -webkit-appearance:none; appearance:none; width:190px; height:22px; padding:0;
+  background:transparent; border:0; border-left:0; accent-color:var(--orb);
+}
+input[type=range]::-webkit-slider-runnable-track{height:3px; background:var(--line-hot)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:12px; height:16px; margin-top:-6px;
+  background:var(--orb); border:0; border-radius:1px; cursor:pointer;
+}
+input[type=checkbox]{width:14px; height:14px; accent-color:var(--orb); border:0; padding:0}
+label{display:inline-flex; align-items:center; gap:8px}
+
+:focus-visible{outline:2px solid var(--orb); outline-offset:2px}
+
+.conn{
+  display:inline-flex; align-items:center; gap:7px; padding:6px 10px;
+  font:12px/1 var(--mono); border:1px solid var(--line); border-radius:2px;
+  background:var(--sunken); color:var(--dim); white-space:nowrap;
+}
+.conn::before{content:""; width:7px; height:7px; background:var(--mut); box-shadow:0 0 0 2px rgba(255,255,255,.04)}
+.conn.ok{color:var(--text); border-color:rgba(116,198,157,.4)}
+.conn.ok::before{background:var(--ok); box-shadow:0 0 8px rgba(116,198,157,.7)}
+.conn.warn{color:var(--orb); border-color:rgba(240,180,41,.4)}
+.conn.warn::before{background:var(--orb); box-shadow:0 0 8px rgba(240,180,41,.6)}
+.conn.bad{color:var(--bad); border-color:rgba(224,104,94,.4)}
+.conn.bad::before{background:var(--bad); box-shadow:0 0 8px rgba(224,104,94,.55)}
+/* 兼容旧 className（pill） */
+.pill{display:inline-flex; align-items:center; gap:7px; padding:6px 10px; font:12px/1 var(--mono);
+  border:1px solid var(--line); border-radius:2px; background:var(--sunken); color:var(--dim)}
+.pill::before{content:""; width:7px; height:7px; background:var(--mut)}
+.pill.ok{color:var(--text); border-color:rgba(116,198,157,.4)}
+.pill.ok::before{background:var(--ok)}
+.pill.warn{color:var(--orb); border-color:rgba(240,180,41,.4)}
+.pill.warn::before{background:var(--orb)}
+.pill.bad{color:var(--bad); border-color:rgba(224,104,94,.4)}
+.pill.bad::before{background:var(--bad)}
+
+table{width:100%; border-collapse:collapse; table-layout:fixed}
+td.k{width:62%}
+td.v{white-space:nowrap}
+td{padding:9px 0; border-bottom:1px solid rgba(255,255,255,.05)}
+tr:last-child td{border-bottom:0}
+td.k{color:var(--mut); font-size:12px}
+td.v,td .v{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right; font-size:14px}
+td.v > span, td .v span{font-weight:600}
+
+pre{
+  margin:10px 0 0; padding:12px 14px; background:var(--sunken);
+  border:1px solid var(--line); border-left:2px solid var(--line-hot);
+  font:12px/1.65 var(--mono); color:#c8d4d0; white-space:pre-wrap;
+  max-height:340px; overflow:auto;
+}
+#layOut:empty::before{content:"点「评分」查看当前布局指标；点「求解最优布局」生成方案。"; color:var(--mut); font-size:12px}
+#trigOut:empty::before{content:"开战后点「开始统计」，跑几圈球再点「生成报告」。"; color:var(--mut); font-size:12px}
+pre{min-height:52px}
+pre::-webkit-scrollbar{width:10px; height:10px}
+pre::-webkit-scrollbar-thumb{background:var(--line-hot)}
+pre::-webkit-scrollbar-track{background:transparent}
+
+#statRows{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:18px}
+#statRows .row{padding:5px 0; border-bottom:1px solid rgba(255,255,255,.05); margin:0; gap:6px}
+#statRows label{width:40px!important; color:var(--dim); font-size:12px}
+#statRows input:not([type=checkbox]){width:64px}
+#statRows button{padding:6px 8px; font-size:12px}
+@media (max-width:820px){ #statRows{grid-template-columns:1fr} }
+
+@media (max-width:520px){ .brand h1{white-space:normal} header{padding:10px 12px;gap:8px} .head-actions{gap:6px} button{padding:7px 9px;font-size:12px} .conn{padding:5px 8px;font-size:11px} }
+@media (max-width:900px){
+  header{flex-wrap:wrap}
+  .head-actions{width:100%; justify-content:flex-start}
+}
+
 </style></head><body>
-<header><h1>背包地牢 修改器</h1>
-<span id="conn" class="pill bad">未连接</span>
-<button class="primary" onclick="act('capture')">① 抓取战斗实例</button>
-<button onclick="act('enforce')">② 重装钩子</button>
-<button onclick="refresh()">刷新</button></header>
+<header>
+  <div class="brand">
+    <svg class="orbit" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 5" opacity=".5"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity=".45"/>
+      <circle cx="20" cy="6" r="3.2" fill="currentColor"/>
+    </svg>
+    <div>
+      <h1>背包地牢 · 修改器</h1>
+      <p class="sub">BattleManager / Pinia console</p>
+    </div>
+  </div>
+  <div class="head-actions">
+    <span id="conn" class="conn bad">未连接</span>
+    <button class="primary" onclick="act('capture')">① 抓取战斗实例</button>
+    <button onclick="act('enforce')">② 重装钩子</button>
+    <button onclick="refresh()">刷新</button>
+  </div>
+</header>
 <div id="msg"></div>
 <div class="grid">
-  <div class="card"><h2>状态</h2><table>
-    <tr><td class="k">血量</td><td class="v"><span id="hp">-</span> / <span id="maxHp">-</span></td></tr>
-    <tr><td class="k">耐力</td><td class="v"><span id="stam">-</span> / <span id="maxStam">-</span></td></tr>
-    <tr><td class="k">魔力 / 护甲层数</td><td class="v"><span id="mana">-</span> / <span id="armor">-</span></td></tr>
-    <tr><td class="k">战斗金币</td><td class="v" id="gold">-</td></tr>
-    <tr><td class="k">存档金币</td><td class="v" id="storeGold">-</td></tr>
-    <tr><td class="k">球速</td><td class="v" id="ball">-</td></tr>
-    <tr><td class="k">敌人</td><td class="v" id="enemies">-</td></tr>
-  </table></div>
+    <section class="card vitals">
+      <h2><span class="g">▣</span>运行状态</h2>
+      <table>
+        <tr><td class="k">血量</td><td class="v"><span id="hp">-</span> / <span id="maxHp">-</span></td></tr>
+        <tr><td class="k">耐力</td><td class="v"><span id="stam">-</span> / <span id="maxStam">-</span></td></tr>
+        <tr><td class="k">魔力 / 护甲层数</td><td class="v"><span id="mana">-</span> / <span id="armor">-</span></td></tr>
+        <tr><td class="k">战斗金币</td><td class="v" id="gold">-</td></tr>
+        <tr><td class="k">存档金币</td><td class="v" id="storeGold">-</td></tr>
+        <tr><td class="k">球速</td><td class="v" id="ball">-</td></tr>
+        <tr><td class="k">敌人</td><td class="v" id="enemies">-</td></tr>
+      </table>
+    </section>
 
-  <div class="card"><h2>生存 / 资源</h2>
-    <div class="row"><button id="btnGod" onclick="toggle('god')">无敌</button>
-      <button id="btnStam" onclick="toggle('infstam')">无限耐力</button></div>
-    <div class="row">血量上限 <input id="hpMax" placeholder="如 10000">
-      <button onclick="act('hp',{max:val('hpMax')})">应用</button></div>
-    <div class="row">耐力上限 <input id="stMax" placeholder="如 200">
-      <button onclick="act('stam',{max:val('stMax')})">应用</button></div>
-    <div class="row">金币倍率
-      <button id="btnGold1" onclick="act('gold',{value:1})">×1</button>
-      <button id="btnGold2" onclick="act('gold',{value:2})">×2</button>
-      <button id="btnGold5" onclick="act('gold',{value:5})">×5</button>
+    <section class="card survival">
+      <h2><span class="g">☆</span>生存 / 资源</h2>
+      <div class="row"><button id="btnGod" onclick="toggle('god')">无敌</button>
+        <button id="btnStam" onclick="toggle('infstam')">无限耐力</button>
+        <button id="btnFree" onclick="toggleFree()">免费刷新：关</button></div>
+      <div class="row">血量上限 <input id="hpMax" placeholder="如 10000">
+        <button onclick="act('hp',{max:val('hpMax')})">应用</button></div>
+      <div class="row">血量保底 <input id="hpFloor" placeholder="如 500">
+        <button id="btnHpFloor" onclick="toggleHpFloor()">血量保底：关</button></div>
+      <div class="row">耐力上限 <input id="stMax" placeholder="如 200">
+        <button onclick="act('stam',{max:val('stMax')})">应用</button></div>
+      <div class="row">金币倍率
+        <button id="btnGold1" onclick="act('gold',{value:1})">×1</button>
+        <button id="btnGold2" onclick="act('gold',{value:2})">×2</button>
+        <button id="btnGold5" onclick="act('gold',{value:5})">×5</button>
       </div>
-    <div class="row">存档金币 <input id="goldSet" placeholder="99999">
-      <button onclick="setGold()">写入</button></div>
-  </div>
+      <div class="row">存档金币 <input id="goldSet" placeholder="99999">
+        <button onclick="setGold()">写入</button></div>
+    </section>
 
-  <div class="card"><h2>伤害 / 球速</h2>
-    <div class="row">伤害 <input type="range" id="dmgR" min="0" max="2000" step="100" value="900"
-      oninput="document.getElementById('dmgV').textContent=this.value+'%'">
-      <span class="v" id="dmgV">900%</span></div>
-    <div class="row"><button id="btnDmg" onclick="toggleDmg()">伤害倍率：关</button>
-      <span class="k">900% = 10 倍</span></div>
-    <div class="row">球速 <input type="range" id="ballR" min="1" max="40" step="1" value="12"
-      oninput="document.getElementById('ballV').textContent=this.value">
-      <span class="v" id="ballV">12</span></div>
-    <div class="row"><button id="btnBall" onclick="toggleBall()">球速：关</button></div>
-    <div class="row">单圈最短 <input type="range" id="loopR" min="0.1" max="2" step="0.1" value="1"
-      oninput="document.getElementById('loopV').textContent=this.value+'s'">
-      <span class="v" id="loopV">1s</span></div>
-    <div class="row"><button id="btnLoop" onclick="toggleLoop()">单圈最短：关</button>
-      <span class="k">越低允许的球速上限越高（默认 2s，硬下限 0.1s）</span></div>
-    <div class="row"><button id="btnAll" onclick="toggleAll()">一键全开：关</button>
-      <span class="k">无敌 + 无限耐力 + 伤害 + 球速</span></div>
-  </div>
+    <section class="card combat">
+      <h2><span class="g">◉</span>伤害 / 球速</h2>
+      <div class="row">伤害 <input type="range" id="dmgR" min="0" max="2000" step="100" value="900"
+        oninput="document.getElementById('dmgV').textContent=this.value+'%'">
+        <span class="v" id="dmgV">900%</span></div>
+      <div class="row"><button id="btnDmg" onclick="toggleDmg()">伤害倍率：关</button>
+        <span class="k">900% = 10 倍</span></div>
+      <div class="row">球速 <input type="range" id="ballR" min="1" max="40" step="1" value="12"
+        oninput="document.getElementById('ballV').textContent=this.value">
+        <span class="v" id="ballV">12</span></div>
+      <div class="row"><button id="btnBall" onclick="toggleBall()">球速：关</button></div>
+      <div class="row">单圈最短 <input type="range" id="loopR" min="0.1" max="2" step="0.1" value="1"
+        oninput="document.getElementById('loopV').textContent=this.value+'s'">
+        <span class="v" id="loopV">1s</span></div>
+      <div class="row"><button id="btnLoop" onclick="toggleLoop()">单圈最短：关</button>
+        <span class="k">越低允许的球速上限越高（默认 2s，硬下限 0.1s）</span></div>
+      <div class="row"><button id="btnAll" onclick="toggleAll()">一键全开：关</button>
+        <span class="k">无敌 + 无限耐力 + 伤害 + 球速</span></div>
+    </section>
 
-  <div class="card"><h2>触发率分析</h2>
-    <div class="row"><button onclick="trigStart()">开始统计</button>
-      <button onclick="trigReport()">生成报告</button></div>
-    <div class="row"><span class="k">开战后点开始，跑几圈球再生成报告</span></div>
-    <pre id="trigOut" style="white-space:pre-wrap;font-size:12px;max-height:320px;overflow:auto;margin:8px 0 0"></pre>
-  </div>
+    <section class="card status">
+      <h2><span class="g">◇</span>正向状态锁定（逐项）</h2>
+      <div id="statRows"></div>
+      <div class="row"><button onclick="statAll(1)">全部锁定</button>
+        <button onclick="statAll(0)">全部关闭</button></div>
+      <div class="row"><span class="k">勾选=持续锁定（低于目标自动补满）；不勾选点设置=只设置一次</span></div>
+    </section>
 
-  <div class="card"><h2>正向状态锁定（逐项）</h2>
-    <div id="statRows"></div>
-    <div class="row"><button onclick="statAll(1)">全部锁定</button>
-      <button onclick="statAll(0)">全部关闭</button></div>
-    <div class="row"><span class="k">勾选=持续锁定（低于目标自动补满）；不勾选点设置=只设置一次</span></div>
-  </div>
+    <section class="card layout wide">
+      <h2><span class="g">▣</span>布局优化（球路 / 弓弹药 / 星位）</h2>
+      <div class="row"><button onclick="layoutScore()">评分</button>
+        <button class="primary" onclick="layoutSolve()">求解最优布局</button>
+        <button onclick="layoutApply()">应用</button>
+        <button onclick="layoutUndo()">回滚</button></div>
+      <div class="row"><label><input type="checkbox" id="mvBags"> 允许移动背包（改变轨道形状，耗时更长）</label></div>
+      <div class="row"><span class="k">应用前自动备份；战斗中禁止写入</span></div>
+      <pre id="layOut"></pre>
+    </section>
 
-  <div class="card"><h2>布局优化（球路 / 弓弹药 / 星位）</h2>
-    <div class="row"><button onclick="layoutScore()">评分</button>
-      <button class="primary" onclick="layoutSolve()">求解最优布局</button>
-      <button onclick="layoutApply()">应用</button>
-      <button onclick="layoutUndo()">回滚</button></div>
-    <div class="row"><span class="k">应用前自动备份；战斗中禁止写入</span></div>
-    <pre id="layOut" style="white-space:pre-wrap;font-size:12px;max-height:360px;overflow:auto;margin:8px 0 0"></pre>
-  </div>
+    <section class="card trig wide">
+      <h2><span class="g">◉</span>触发率分析</h2>
+      <div class="row"><button onclick="trigStart()">开始统计</button>
+        <button onclick="trigReport()">生成报告</button></div>
+      <div class="row"><span class="k">开战后点开始，跑几圈球再生成报告</span></div>
+      <pre id="trigOut"></pre>
+    </section>
 
-  <div class="card"><h2>使用顺序</h2>
-    <div class="row"><span class="k">进入战斗 → ① 抓取战斗实例；其余功能点一次即自动装好钩子</span></div>
-  </div>
+    <section class="card hintcard">
+      <b>使用顺序</b>
+      <p>进入战斗 → ① 抓取战斗实例。</p>
+      <p>其余功能点一次即自动装好钩子。</p>
+    </section>
 </div>
+
 <script>
 const msg=document.getElementById('msg');
 const val=id=>document.getElementById(id).value;
@@ -680,6 +919,27 @@ async function setGold(){
     const r2=await fetch('/api/storegold?'+new URLSearchParams({value:v})); const j=await r2.json();
     if(!j.ok) throw new Error(j.error||'失败');
     say('存档金币已设为 '+v); refresh();
+  }catch(e){say('错误：'+e.message);}
+}
+async function toggleFree(){
+  try{
+    const st=await api('status');
+    const on=!!(st&&st.shop);
+    await act('freerefresh',{value:on?'0':'1'});
+    say(on?'免费刷新已关闭':'免费刷新已开启（刷新不扣金币）');
+  }catch(e){say('错误：'+e.message);}
+}
+async function toggleHpFloor(){
+  try{
+    const st=await api('status');
+    const f=(st&&st.flags)||{};
+    if(Number(f.hpFloor)>0){ await act('hpfloor',{value:0}); say('血量保底已关闭'); }
+    else {
+      const v=val('hpFloor');
+      if(!v) return say('请先填写保底血量');
+      await act('hpfloor',{value:v});
+      say('血量低于 '+v+' 时自动回满');
+    }
   }catch(e){say('错误：'+e.message);}
 }
 async function toggleDmg(){
@@ -746,6 +1006,12 @@ async function refresh(){
       document.getElementById('btnGod').textContent=f.godHp?'无敌：开':'无敌：关';
       document.getElementById('btnStam').className=f.infStam?'on':'';
       document.getElementById('btnStam').textContent=f.infStam?'无限耐力：开':'无限耐力：关';
+      const hfOn=Number(f.hpFloor)>0;
+      const bhf=document.getElementById('btnHpFloor');
+      if(bhf){ bhf.className=hfOn?'on':''; bhf.textContent=hfOn?('血量保底：开 '+f.hpFloor):'血量保底：关'; }
+      const frOn=!!s.shop;
+      const bf=document.getElementById('btnFree');
+      if(bf){ bf.className=frOn?'on':''; bf.textContent=frOn?'免费刷新：开':'免费刷新：关'; }
       const gm=Number(f.goldMul||1);
       [['btnGold1',1],['btnGold2',2],['btnGold5',5]].forEach(([id,v])=>{
         const el=document.getElementById(id); if(el) el.className=(gm===v?'on':'');
@@ -820,14 +1086,18 @@ async function layoutScore(){
 async function layoutSolve(){
   const out=document.getElementById('layOut');
   try{
-    say('求解中…'); out.textContent='求解中，请稍候（约 5~20 秒）…';
-    const r=await api('layoutsolve');
+    say('求解中…');
+    const mv=document.getElementById('mvBags');
+    out.textContent='求解中，请稍候（'+(mv&&mv.checked?'含背包移动，约 10~40 秒':'约 5~20 秒')+'）…';
+    const r=await api('layoutsolve',{movebags:(mv&&mv.checked)?'1':'0'});
+    const bagMoves=r.bagMoves||[];
     const lines=[];
     lines.push('当前: '+fmtM(r.before));
     lines.push('优化: '+fmtM(r.after));
-    lines.push('耗时 '+(r.ms/1000).toFixed(1)+'s   移动 '+r.moves.length+' 件（尚未应用）');
-    if(r.moves.length){ lines.push(''); for(const m of r.moves) lines.push('  '+m.id.padEnd(22)+' '+m.from+' → '+m.to); }
-    out.textContent=lines.join('\\n');
+    lines.push('耗时 '+(r.ms/1000).toFixed(1)+'s   道具移动 '+r.moves.length+' 件   背包移动 '+bagMoves.length+' 个（尚未应用）');
+    if(bagMoves.length){ lines.push(''); lines.push('【背包】'); for(const m of bagMoves) lines.push('  '+m.id+' '+m.from+' → '+m.to); }
+    if(r.moves.length){ lines.push(''); lines.push('【道具】'); for(const m of r.moves) lines.push('  '+m.id.padEnd(22)+' '+m.from+' → '+m.to); }
+    out.textContent=lines.join(String.fromCharCode(10));
     say('方案已生成');
   }catch(e){out.textContent='错误：'+e.message; say('错误：'+e.message);}
 }
